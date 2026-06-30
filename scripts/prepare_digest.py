@@ -20,13 +20,16 @@ import httpx
 SCRIPT_DIR = Path(__file__).parent
 ROOT_DIR = SCRIPT_DIR.parent
 
-FEED_X_URL = "https://raw.githubusercontent.com/Benboerba620/ai-signal/main/feeds/feed-x.json"
-FEED_PODCASTS_URL = "https://raw.githubusercontent.com/Benboerba620/ai-signal/main/feeds/feed-podcasts.json"
+FEED_BASE = "https://raw.githubusercontent.com/Benboerba620/ai-signal/main/feeds"
+FEED_X_URL = f"{FEED_BASE}/feed-x.json"
+FEED_PODCASTS_URL = f"{FEED_BASE}/feed-podcasts.json"
+FEED_ARXIV_URL = f"{FEED_BASE}/feed-arxiv.json"
 
 PROMPTS_BASE = "https://raw.githubusercontent.com/Benboerba620/ai-signal/main/prompts"
 PROMPT_FILES = [
     "summarize-podcast.md",
     "summarize-tweets.md",
+    "summarize-papers.md",
     "digest-intro.md",
 ]
 
@@ -66,10 +69,13 @@ def main():
     # 2. Fetch feeds
     feed_x = fetch_json(FEED_X_URL)
     feed_podcasts = fetch_json(FEED_PODCASTS_URL)
+    feed_arxiv = fetch_json(FEED_ARXIV_URL)
     if not feed_x:
         errors.append("Could not fetch tweet feed")
     if not feed_podcasts:
         errors.append("Could not fetch podcast feed")
+    if not feed_arxiv:
+        errors.append("Could not fetch arXiv feed")
 
     # 3. Load prompts: user custom > remote > local
     prompts = {}
@@ -94,22 +100,25 @@ def main():
             errors.append(f"Could not load prompt: {filename}")
 
     # 4. Build output
+    papers = (feed_arxiv or {}).get("papers", [])
     output = {
         "status": "ok",
         "generated_at": (feed_x or {}).get("generated_at") or (feed_podcasts or {}).get("generated_at"),
         "config": {
             "language": config.get("language", "en"),
             "granularity": config.get("granularity", "summary"),
-            "domains": config.get("domains", ["ai", "energy", "invest"]),
+            "domains": config.get("domains", ["ai", "invest"]),
             "delivery": config.get("delivery", {"method": "stdout"}),
         },
         "podcasts": (feed_podcasts or {}).get("podcasts", []),
         "x": (feed_x or {}).get("x", []),
+        "papers": papers,
         "stats": {
             "podcast_episodes": len((feed_podcasts or {}).get("podcasts", [])),
             "podcast_with_transcript": sum(1 for e in (feed_podcasts or {}).get("podcasts", []) if e.get("transcript")),
             "x_builders": len((feed_x or {}).get("x", [])),
             "total_tweets": sum(len(a.get("tweets", [])) for a in (feed_x or {}).get("x", [])),
+            "arxiv_papers": len(papers),
         },
         "prompts": prompts,
         "errors": errors if errors else None,

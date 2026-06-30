@@ -38,5 +38,14 @@
       {"name": "Capital Allocators", "domain": "invest", "rss_url": "https://rss.libsyn.com/shows/94820/destinations/482814.xml"},
       {"name": "The Acquirers Podcast", "domain": "invest", "rss_url": "https://anchor.fm/s/9603714/podcast/rss"}
     ]
+  },
+  "arxiv": {
+    "lookback_hours": 24,
+    "max_papers": 30,
+    "categories": [
+      {"id": "cs.AI", "name": "Artificial Intelligence"},
+      {"id": "cs.CL", "name": "Computation and Language"},
+      {"id": "cs.LG", "name": "Machine Learning"}
+    ]
   }
 }

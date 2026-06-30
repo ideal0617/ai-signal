@@ -14,6 +14,7 @@
 
 - 一线播客的最新内容（含全文字幕，不是摘要的摘要）
 - 精选推特账号的当日观点
+- arXiv 最新 AI/ML/NLP 论文摘要
 - 按你的偏好定制：中文 / 英文 / 双语，精华 / 标准 / 完整
 - 不需要任何 API key——所有内容由中央服务统一抓取
 
@@ -46,22 +47,46 @@
 
 > 选人标准：在一线做事 / 有独立判断 / 用真金白银下注。不选搬运号、评论员、流量账号。
 
+### arXiv 论文（每日最多 30 篇）
+
+| 分类 | 覆盖范围 |
+|------|----------|
+| cs.AI | 人工智能 |
+| cs.CL | 计算语言学（LLM / NLP 论文主阵地） |
+| cs.LG | 机器学习 |
+
+> 每天抓取最近 24 小时新提交的论文标题 + 摘要，订阅者的 AI 按需生成解读。
+
 ## 快速开始
 
-### 安装（Claude Code）
+打开你的 AI Agent（OpenClaw / Claude Code / Cursor / WorkBuddy / Codex 等），说一句话：
+
+> **帮我安装 https://github.com/Benboerba620/ai-signal**
+
+AI 会自动完成安装，然后引导你设置语言、详细程度和推送方式。设置完**立刻收到第一份推送**。
+
+不需要敲命令、不需要配环境、不需要 API key。
+
+<details>
+<summary>手动安装（如果你的 Agent 不支持自动安装）</summary>
 
 ```bash
+# OpenClaw
+git clone https://github.com/Benboerba620/ai-signal.git ~/skills/ai-signal
+cd ~/skills/ai-signal/scripts && pip install -r ../requirements.txt
+
+# Claude Code
 git clone https://github.com/Benboerba620/ai-signal.git ~/.claude/skills/ai-signal
 cd ~/.claude/skills/ai-signal/scripts && pip install -r ../requirements.txt
+
+# 其他
+git clone https://github.com/Benboerba620/ai-signal.git
+cd ai-signal/scripts && pip install -r ../requirements.txt
 ```
 
-然后告诉 Claude：**"set up ai signal"**——它会引导你设置语言、详细程度和推送方式。
+安装完成后告诉你的 Agent：**"set up ai signal"**
 
-### 手动运行
-
-```bash
-python scripts/prepare_digest.py  # 拉最新 feed，输出给 LLM 处理
-```
+</details>
 
 ## 定制
 
@@ -80,6 +105,7 @@ python scripts/prepare_digest.py  # 拉最新 feed，输出给 LLM 处理
 
 - `summarize-podcast.md` — 播客怎么总结
 - `summarize-tweets.md` — 推文怎么提炼
+- `summarize-papers.md` — 论文怎么摘要
 - `digest-intro.md` — 整体语气和格式
 
 纯文本指令，不是代码。改完下次推送生效。
@@ -89,22 +115,29 @@ python scripts/prepare_digest.py  # 拉最新 feed，输出给 LLM 处理
 ```
 中央服务（本 repo，GitHub Actions 每天自动跑）
   └── generate_feed.py
-      → 抓推文原文 + 播客 RSS + YouTube 全文字幕
-      → feed-x.json、feed-podcasts.json（commit 到 repo）
+      → 抓推文原文 + 播客 RSS + YouTube 全文字幕 + arXiv 论文
+      → feed-x.json、feed-podcasts.json、feed-arxiv.json（commit 到 repo）
 
-你的机器（Claude Code skill）
+你的机器（任意 AI Agent：OpenClaw / Claude Code / Cursor / WorkBuddy / Codex）
   └── prepare_digest.py → 从本 repo 拉 feed
-      → 你的 Claude 按你的偏好生成摘要
+      → 你的 AI 按你的偏好生成摘要
       → deliver.py → 推送到你的 Telegram / 飞书 / 邮件
 ```
 
-**你不需要任何 API key。** 内容抓取在中央完成，摘要由你自己的 Claude 生成。
+**你不需要任何 API key。** 内容抓取在中央完成，摘要由你自己的 AI 生成。
+
+## 要求
+
+- 一个 AI Agent（OpenClaw、Claude Code、Cursor、WorkBuddy、Codex 等均可）
+- 网络连接（拉取中央 feed）
+
+就这些。不需要任何 API key。所有内容由中央统一抓取，每天自动更新。
 
 ## 隐私
 
 - 不采集任何用户数据
 - 你的配置和偏好只存在你自己的机器上（`~/.ai-signal/`）
-- 只聚合公开内容（公开推文、公开播客）
+- 只聚合公开内容（公开推文、公开播客、公开论文）
 
 ## 关于
 

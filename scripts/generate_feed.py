@@ -1,10 +1,10 @@
-"""Central feed generator — fetches raw content from Twitter + podcasts + blogs.
+"""Central feed generator — fetches raw content from Twitter + podcasts + arXiv.
 
 Runs on GitHub Actions daily. Outputs raw content (no LLM summarization).
 Subscribers pull the feed JSON and use their own LLM to generate digests.
 
 Usage:
-    python scripts/generate_feed.py [--twitter-only | --podcasts-only]
+    python scripts/generate_feed.py [--twitter-only | --podcasts-only | --arxiv-only]
 
 Env vars:
     TWITTER_COOKIES — browser cookie string for twscrape auth
@@ -36,12 +36,12 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML,
 def load_state():
     if STATE_PATH.exists():
         return json.loads(STATE_PATH.read_text("utf-8"))
-    return {"seen_tweets": {}, "seen_episodes": {}}
+    return {"seen_tweets": {}, "seen_episodes": {}, "seen_papers": {}}
 
 
 def save_state(state):
     cutoff = (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
-    for key in ("seen_tweets", "seen_episodes"):
+    for key in ("seen_tweets", "seen_episodes", "seen_papers"):
         state[key] = {k: v for k, v in state.get(key, {}).items() if v > cutoff}
     STATE_PATH.write_text(json.dumps(state, indent=2), encoding="utf-8")
 
@@ -342,12 +342,113 @@ def fetch_podcasts(sources, state):
     return {"podcasts": all_episodes, "errors": errors if errors else None}
 
 
+# ── arXiv fetching ───────────────────────────────────────────────────────────
+
+def fetch_arxiv(sources, state):
+    arxiv_cfg = sources.get("arxiv", {})
+    categories = arxiv_cfg.get("categories", [])
+    max_papers = arxiv_cfg.get("max_papers", 30)
+    lookback = arxiv_cfg.get("lookback_hours", 48)
+
+    if not categories:
+        return {"papers": [], "errors": ["No arXiv categories configured"]}
+
+    cat_query = "+OR+".join(f"cat:{c['id']}" for c in categories)
+    url = (f"https://export.arxiv.org/api/query?search_query={cat_query}"
+           f"&sortBy=submittedDate&sortOrder=descending&max_results={max_papers * 2}")
+
+    log(f"\n━━━ arXiv Papers ━━━")
+    log(f"🔬 Categories: {', '.join(c['id'] for c in categories)}")
+
+    try:
+        resp = httpx.get(url, timeout=30, headers={"User-Agent": UA})
+        resp.raise_for_status()
+    except Exception as e:
+        log(f"  ⚠️ arXiv API failed: {e}")
+        return {"papers": [], "errors": [str(e)]}
+
+    ns = {
+        "atom": "http://www.w3.org/2005/Atom",
+        "arxiv": "http://arxiv.org/schemas/atom",
+    }
+
+    try:
+        root = ET.fromstring(resp.text)
+    except ET.ParseError as e:
+        log(f"  ⚠️ XML parse error: {e}")
+        return {"papers": [], "errors": [str(e)]}
+
+    since = datetime.now(timezone.utc) - timedelta(hours=lookback)
+    state.setdefault("seen_papers", {})
+    papers = []
+
+    for entry in root.findall("atom:entry", ns):
+        id_url = entry.findtext("atom:id", "", ns)
+        arxiv_id = id_url.split("/abs/")[-1] if "/abs/" in id_url else id_url
+
+        if arxiv_id in state["seen_papers"]:
+            continue
+
+        pub_str = entry.findtext("atom:published", "", ns)
+        pub_date = None
+        if pub_str:
+            try:
+                pub_date = datetime.fromisoformat(pub_str.replace("Z", "+00:00"))
+            except ValueError:
+                pass
+
+        if pub_date and pub_date < since:
+            continue
+
+        title = entry.findtext("atom:title", "", ns).strip()
+        title = re.sub(r"\s+", " ", title)
+        abstract = entry.findtext("atom:summary", "", ns).strip()
+        abstract = re.sub(r"\s+", " ", abstract)
+
+        authors = []
+        for author_el in entry.findall("atom:author", ns):
+            name = author_el.findtext("atom:name", "", ns).strip()
+            if name:
+                authors.append(name)
+
+        cats = [cat.get("term", "") for cat in entry.findall("atom:category", ns) if cat.get("term")]
+        primary_el = entry.find("arxiv:primary_category", ns)
+        primary_cat = primary_el.get("term", "") if primary_el is not None else ""
+
+        pdf_url = ""
+        for link_el in entry.findall("atom:link", ns):
+            if link_el.get("title") == "pdf":
+                pdf_url = link_el.get("href", "")
+                break
+
+        comment = (entry.findtext("arxiv:comment", "", ns) or "").strip()
+
+        state["seen_papers"][arxiv_id] = datetime.now(timezone.utc).isoformat()
+        papers.append({
+            "arxiv_id": arxiv_id,
+            "title": title,
+            "authors": authors[:5],
+            "abstract": abstract,
+            "primary_category": primary_cat,
+            "categories": cats,
+            "pdf_url": pdf_url,
+            "abs_url": f"https://arxiv.org/abs/{arxiv_id}",
+            "published": pub_date.isoformat() if pub_date else pub_str,
+            "comment": comment,
+        })
+
+    papers = papers[:max_papers]
+    log(f"  ✅ {len(papers)} papers")
+    return {"papers": papers, "errors": None}
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 async def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--twitter-only", action="store_true")
     parser.add_argument("--podcasts-only", action="store_true")
+    parser.add_argument("--arxiv-only", action="store_true")
     args = parser.parse_args()
 
     sources = load_sources()
@@ -355,7 +456,9 @@ async def main():
     now = datetime.now(timezone.utc)
     FEEDS_DIR.mkdir(parents=True, exist_ok=True)
 
-    if not args.podcasts_only:
+    run_all = not (args.twitter_only or args.podcasts_only or args.arxiv_only)
+
+    if run_all or args.twitter_only:
         log("\n━━━ Twitter/X ━━━")
         twitter_feed = await fetch_twitter(sources, state)
         twitter_feed["generated_at"] = now.isoformat()
@@ -364,7 +467,7 @@ async def main():
         active = sum(1 for a in twitter_feed["x"] if a["tweets"])
         log(f"✅ feed-x.json ({active}/{len(twitter_feed['x'])} accounts with content)")
 
-    if not args.twitter_only:
+    if run_all or args.podcasts_only:
         log("\n━━━ Podcasts ━━━")
         podcast_feed = fetch_podcasts(sources, state)
         podcast_feed["generated_at"] = now.isoformat()
@@ -372,6 +475,13 @@ async def main():
             json.dumps(podcast_feed, ensure_ascii=False, indent=2), encoding="utf-8")
         with_transcript = sum(1 for e in podcast_feed["podcasts"] if e.get("transcript"))
         log(f"✅ feed-podcasts.json ({len(podcast_feed['podcasts'])} episodes, {with_transcript} with transcript)")
+
+    if run_all or args.arxiv_only:
+        arxiv_feed = fetch_arxiv(sources, state)
+        arxiv_feed["generated_at"] = now.isoformat()
+        (FEEDS_DIR / "feed-arxiv.json").write_text(
+            json.dumps(arxiv_feed, ensure_ascii=False, indent=2), encoding="utf-8")
+        log(f"✅ feed-arxiv.json ({len(arxiv_feed['papers'])} papers)")
 
     save_state(state)
     log("\n🎉 Feed generation complete")

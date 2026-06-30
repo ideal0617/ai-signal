@@ -1,0 +1,231 @@
+{
+  "twitter": {
+    "lookback_hours": 168,
+    "max_tweets_per_user": 5,
+    "min_engagement": 10,
+    "accounts": [
+      {
+        "handle": "karpathy",
+        "name": "Andrej Karpathy",
+        "domain": "ai",
+        "tier": "analyst"
+      },
+      {
+        "handle": "swyx",
+        "name": "Swyx (Shawn Wang)",
+        "domain": "ai",
+        "tier": "analyst"
+      },
+      {
+        "handle": "dylanpatel_",
+        "name": "Dylan Patel (SemiAnalysis)",
+        "domain": "ai",
+        "tier": "analyst"
+      },
+      {
+        "handle": "leopoldaob",
+        "name": "Leopold Aschenbrenner",
+        "domain": "ai",
+        "tier": "analyst"
+      },
+      {
+        "handle": "jimkeller_",
+        "name": "Jim Keller",
+        "domain": "ai",
+        "tier": "analyst"
+      },
+      {
+        "handle": "sama",
+        "name": "Sam Altman",
+        "domain": "ai",
+        "tier": "exec"
+      },
+      {
+        "handle": "DarioAmodei",
+        "name": "Dario Amodei",
+        "domain": "ai",
+        "tier": "exec"
+      },
+      {
+        "handle": "demabortin",
+        "name": "Demis Hassabis",
+        "domain": "ai",
+        "tier": "exec",
+        "_todo": "verify handle"
+      },
+      {
+        "handle": "JensenHuang",
+        "name": "Jensen Huang",
+        "domain": "ai",
+        "tier": "exec",
+        "_todo": "verify handle"
+      },
+      {
+        "handle": "satabortin",
+        "name": "Satya Nadella",
+        "domain": "ai",
+        "tier": "exec",
+        "_todo": "verify handle"
+      },
+      {
+        "handle": "AmandaAskell",
+        "name": "Amanda Askell (Anthropic)",
+        "domain": "ai",
+        "tier": "builder"
+      },
+      {
+        "handle": "bcherny",
+        "name": "Boris Cherny (Claude Code)",
+        "domain": "ai",
+        "tier": "builder"
+      },
+      {
+        "handle": "_catwu",
+        "name": "Cat Wu (Anthropic)",
+        "domain": "ai",
+        "tier": "builder"
+      },
+      {
+        "handle": "alexalbert__",
+        "name": "Alex Albert (Anthropic)",
+        "domain": "ai",
+        "tier": "builder"
+      },
+      {
+        "handle": "rauchg",
+        "name": "Guillermo Rauch (Vercel)",
+        "domain": "ai",
+        "tier": "builder"
+      },
+      {
+        "handle": "amasad",
+        "name": "Amjad Masad (Replit)",
+        "domain": "ai",
+        "tier": "builder"
+      },
+      {
+        "handle": "joshwoodward",
+        "name": "Josh Woodward (Google Labs)",
+        "domain": "ai",
+        "tier": "builder"
+      },
+      {
+        "handle": "ArjunMurti",
+        "name": "Arjun Murti",
+        "domain": "energy",
+        "tier": "analyst",
+        "_todo": "verify handle"
+      },
+      {
+        "handle": "DoombergT",
+        "name": "Doomberg",
+        "domain": "energy",
+        "tier": "analyst"
+      },
+      {
+        "handle": "JavierBlas",
+        "name": "Javier Blas (Bloomberg)",
+        "domain": "energy",
+        "tier": "analyst"
+      }
+    ],
+    "_note": "标 _todo 的 handle 需要手动验证"
+  },
+  "podcasts": {
+    "lookback_hours": 168,
+    "channels": [
+      {
+        "name": "Dwarkesh Patel",
+        "domain": "ai",
+        "rss_url": "https://www.dwarkesh.com/feed"
+      },
+      {
+        "name": "Lex Fridman",
+        "domain": "ai",
+        "rss_url": "https://lexfridman.com/feed/podcast/"
+      },
+      {
+        "name": "Latent Space",
+        "domain": "ai",
+        "rss_url": "https://api.substack.com/feed/podcast/1084089.rss"
+      },
+      {
+        "name": "All-In Podcast",
+        "domain": "ai",
+        "rss_url": "https://rss.libsyn.com/shows/254861/destinations/1928300.xml",
+        "needs_filter": true
+      },
+      {
+        "name": "a16z",
+        "domain": "ai",
+        "rss_url": "https://feeds.simplecast.com/JGE3yC0V"
+      },
+      {
+        "name": "No Priors",
+        "domain": "ai",
+        "rss_url": "https://feeds.megaphone.fm/nopriors"
+      },
+      {
+        "name": "Google DeepMind Podcast",
+        "domain": "ai",
+        "rss_url": "https://feeds.simplecast.com/JT6pbPkg"
+      },
+      {
+        "name": "Lightcone Podcast",
+        "domain": "ai",
+        "rss_url": "https://anchor.fm/s/f58d3330/podcast/rss"
+      },
+      {
+        "name": "Lenny's Podcast",
+        "domain": "ai",
+        "rss_url": "https://api.substack.com/feed/podcast/10845.rss"
+      },
+      {
+        "name": "Macro Voices",
+        "domain": "energy",
+        "rss_url": "https://feeds.feedburner.com/MacroVoices"
+      },
+      {
+        "name": "Super-Spiked",
+        "domain": "energy",
+        "rss_url": "https://api.substack.com/feed/podcast/567871.rss"
+      },
+      {
+        "name": "Columbia Energy Exchange",
+        "domain": "energy",
+        "rss_url": "https://rss.libsyn.com/shows/76724/destinations/343325.xml"
+      },
+      {
+        "name": "Invest Like the Best",
+        "domain": "invest",
+        "rss_url": "https://feeds.megaphone.fm/CLS2859450455",
+        "needs_filter": true
+      },
+      {
+        "name": "Capital Allocators",
+        "domain": "invest",
+        "rss_url": "https://rss.libsyn.com/shows/94820/destinations/482814.xml"
+      },
+      {
+        "name": "The Acquirers Podcast",
+        "domain": "invest",
+        "rss_url": "https://anchor.fm/s/9603714/podcast/rss"
+      }
+    ]
+  },
+  "blogs": {
+    "lookback_hours": 72,
+    "feeds": [
+      {
+        "name": "SemiAnalysis",
+        "domain": "ai",
+        "rss_url": "https://api.substack.com/feed/podcast/862876.rss"
+      },
+      {
+        "name": "Fabricated Knowledge",
+        "domain": "ai",
+        "rss_url": "https://api.substack.com/feed/podcast/862877.rss"
+      }
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+httpx>=0.27
+twscrape>=0.15
+youtube-transcript-api>=0.6

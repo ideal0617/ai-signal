@@ -7,40 +7,13 @@
       "tier": "analyst",
       "tweets": [
         {
-          "id": "2069468693017268244",
-          "text": "Introducing Claude Tag, a new way for teams to work with Claude.\n\nIn Slack, Claude joins as a team member with access to the channels and tools you choose. Tag Claude in and delegate tasks to it while you focus on other work. https://t.co/R2C6A5Kcye",
-          "created_at": "2026-06-23T17:12:39+00:00",
-          "like_count": 28331,
-          "retweet_count": 2158,
-          "reply_count": 1600,
-          "url": "https://x.com/claudeai/status/2069468693017268244"
-        },
-        {
-          "id": "2069547676849557725",
-          "text": "This is a new paradigm for interacting with Claude that is significantly more \"inline\" with all the other human activity org-wide. Once you do all of the under the hood engineering work to make this \"just work\" (e.g. across tools, integrations, compute environments, memory, security, etc.), Claude basically joins the team in a seamless way - you can talk to it as you would talk to a person and it can help with a very large variety of workloads.\n\nImo this is the 3rd major redesign of LLM UIUX. The first paradigm was that the LLM is a website you go to, the second was that it is an app you download to your computer. This third one is that it is a self-contained, persistent, asynchronous entity with org-wide tools and context, working alongside teams of humans. It really takes a while to wrap your head around it, but it works and it is awesome.",
-          "created_at": "2026-06-23T22:26:31+00:00",
-          "like_count": 22770,
-          "retweet_count": 1883,
-          "reply_count": 1256,
-          "url": "https://x.com/karpathy/status/2069547676849557725"
-        },
-        {
-          "id": "2069601818540392669",
-          "text": "The basic idea is easy and v0 is a hackathon project. The product here is a lot closer to *it actually works*, for enterprise grade deployments, and after quite a bit of internal experimentation and iteration. It’s kind of hard to describe other than (per the post) it’s writing majority of code, it’s deeply integrated, multiplayer, and it starts to feel like everyone is a manager. So I understand it looks easy to dismiss on quick reading but it’s not some LLM Q&A with RAG over Slack, it’s not even OpenClaw adjacent, it’s a different way of working entirely, for people and teams. I work from Slack now.",
-          "created_at": "2026-06-24T02:01:39+00:00",
-          "like_count": 1633,
-          "retweet_count": 52,
-          "reply_count": 121,
-          "url": "https://x.com/karpathy/status/2069601818540392669"
-        },
-        {
-          "id": "2069580531055100166",
-          "text": "@EngramLab Congrats on the launch!!",
-          "created_at": "2026-06-24T00:37:04+00:00",
-          "like_count": 140,
-          "retweet_count": 6,
-          "reply_count": 2,
-          "url": "https://x.com/karpathy/status/2069580531055100166"
+          "id": "2072061140943921550",
+          "text": "Congrats!! I was impressed to learn about some of the engineering wizardry (e.g. *very* low voltage domains, cluster scale memory, ...) that goes into tokens/watt maxxing of state of the art LLMs at interactive tokens/sec/user. Esp fun and memorable is the idea that this is engineering at the \"opposite\" regime to that of power transmission lines: very low voltage high current (at tiny distances) vs. very high voltage & low current (at great distances). Looking forward to more!",
+          "created_at": "2026-06-30T20:54:07+00:00",
+          "like_count": 406,
+          "retweet_count": 13,
+          "reply_count": 6,
+          "url": "https://x.com/karpathy/status/2072061140943921550"
         }
       ]
     },
@@ -51,49 +24,49 @@
       "tier": "analyst",
       "tweets": [
         {
-          "id": "2071319131144790064",
-          "text": "I’m giving a talk this week about why I have my coding agents quiz me on code changes, and how I build micro-worlds to understand what’s going on. \n\nWhat questions / topics should I cover? https://t.co/bpb13P0gVT",
-          "created_at": "2026-06-28T19:45:38+00:00",
-          "like_count": 519,
-          "retweet_count": 18,
-          "reply_count": 31,
-          "url": "https://x.com/geoffreylitt/status/2071319131144790064"
+          "id": "2071972449277898924",
+          "text": "Good morning @aiDotEngineer !\nAre we talking loops today?",
+          "created_at": "2026-06-30T15:01:41+00:00",
+          "like_count": 322,
+          "retweet_count": 7,
+          "reply_count": 40,
+          "url": "https://x.com/steipete/status/2071972449277898924"
         },
         {
-          "id": "2071254588808941893",
-          "text": "The 2026 World's Fair is completely sold out 🫡\n\n✅ The largest AI industry expo on earth\n✅ Sold out on Leadership track for CTOs & VP AI's\n✅ Sold out on Workshops tomorrow\n✅ Sold out on ALL late bird tickets\n🙌 65 side events still FREE all over SF (see website)\nWhat we will never sell out: Our commitment to publishing all the best AI engineering content for free online on YouTube.\n\nWe have now opened limited overflow tickets for our expo and engineering tix — no seating guaranteed, sessions are first come first served.\n\nIf you ARE one of our attendees, DO come down to Moscone for New Engineer Orientation tonight from 5p-9p to meet new friends and skip the morning crush for tomorrow. We expect EXTREMELY heavy last minute registration and need your help to load balance across days.\n\nPlease give your speakers and sponsors all the love for all the effort they are putting into making this the greatest show we have ever done!",
-          "created_at": "2026-06-28T15:29:10+00:00",
-          "like_count": 103,
-          "retweet_count": 8,
-          "reply_count": 15,
-          "url": "https://x.com/aiDotEngineer/status/2071254588808941893"
+          "id": "2071977886991679715",
+          "text": "we are talking loops today ✅ https://t.co/aorwoqPHZy",
+          "created_at": "2026-06-30T15:23:18+00:00",
+          "like_count": 35,
+          "retweet_count": 2,
+          "reply_count": 6,
+          "url": "https://x.com/swyx/status/2071977886991679715"
         },
         {
-          "id": "2071319972882911687",
-          "text": "in case anyone was wondering, 300 or so people were referred by chatgpt this year https://t.co/e5uYcGm0Ti",
-          "created_at": "2026-06-28T19:48:59+00:00",
-          "like_count": 96,
+          "id": "2072048730581405800",
+          "text": "very successful first poster sessions day at AIEWF, thanks to @heathercmiller and @ACM_President for the support!!\n\ntomorrow: Poaster sessions! submit your hottest tweets to @vibhuuuus for printing!\n\nspotted: left shark https://t.co/nv2I2l00Oe",
+          "created_at": "2026-06-30T20:04:48+00:00",
+          "like_count": 27,
           "retweet_count": 3,
           "reply_count": 6,
-          "url": "https://x.com/swyx/status/2071319972882911687"
+          "url": "https://x.com/swyx/status/2072048730581405800"
         },
         {
-          "id": "2071480924810969331",
-          "text": "we registered 1000 people today. this is what it looked like at hour 3.\n\ntmr and tuesday going to be absolutely batshit https://t.co/GXHMEG7dlN",
-          "created_at": "2026-06-29T06:28:33+00:00",
-          "like_count": 76,
-          "retweet_count": 3,
-          "reply_count": 17,
-          "url": "https://x.com/swyx/status/2071480924810969331"
+          "id": "2071864193435980081",
+          "text": "@badlogicgames @aiDotEngineer and that was just workshop day!",
+          "created_at": "2026-06-30T07:51:31+00:00",
+          "like_count": 13,
+          "retweet_count": 0,
+          "reply_count": 1,
+          "url": "https://x.com/swyx/status/2071864193435980081"
         },
         {
-          "id": "2071437186289852622",
-          "text": "you guys are not ready for this level of swag https://t.co/jabQv6FhJ3",
-          "created_at": "2026-06-29T03:34:45+00:00",
-          "like_count": 60,
-          "retweet_count": 2,
-          "reply_count": 7,
-          "url": "https://x.com/aiDotEngineer/status/2071437186289852622"
+          "id": "2071845141816787136",
+          "text": "@Scobleizer haha ty",
+          "created_at": "2026-06-30T06:35:49+00:00",
+          "like_count": 6,
+          "retweet_count": 0,
+          "reply_count": 1,
+          "url": "https://x.com/swyx/status/2071845141816787136"
         }
       ]
     },
@@ -123,53 +96,7 @@
       "name": "Sam Altman",
       "domain": "ai",
       "tier": "exec",
-      "tweets": [
-        {
-          "id": "2069770172802773292",
-          "text": "We’ve designed and built our first AI chip: Jalapeño.\n\nDesigned from the ground up by OpenAI and brought to production with @Broadcom, Jalapeño is purpose-built for the LLM workloads powering ChatGPT, Codex, the API, and future agentic products.\n\nChips are foundational to the AI economy. Building our own expands our full-stack platform from products to models to infrastructure, and will help us scale intelligence, serve more people, and expand access to AI.",
-          "created_at": "2026-06-24T13:10:38+00:00",
-          "like_count": 22757,
-          "retweet_count": 2362,
-          "reply_count": 1443,
-          "url": "https://x.com/OpenAI/status/2069770172802773292"
-        },
-        {
-          "id": "2070607488274358364",
-          "text": "Good new first: Sol is a smart, efficient, and a significant step forward. It is the same price as GPT-5.5. Also launching in the GPT-5.6 family is Terra, with 5.5-level performance at half the price.\n\nBad news: at the request of the US government, it is launching today in limited preview instead of the open access launch we were planning on. We are working with the government to get to general availability as fast as we can.\n\nI think it is quite reasonable to roll out models--especially as they reach significant new levels of capability--in this way. It fits with our long-held strategy of iterative deployment. But this isn't quite the process that we think is optimal.\n\nNow we will with the government to attempt to get to a transparent, reliable process for early access, and to ensure that as long as our safeguards work as intended we can release widely. We want to be a reliable, dependable partner that works with all stakeholders, and we also want to live by our mission of benefiting all of humanity. I believe the government shares most of our goals, and that they are overall doing a good job in a very difficult situation.\n\nWe will work as quickly as we can to get this model in your hands and we hope you will love it.",
-          "created_at": "2026-06-26T20:37:49+00:00",
-          "like_count": 18341,
-          "retweet_count": 1126,
-          "reply_count": 1904,
-          "url": "https://x.com/sama/status/2070607488274358364"
-        },
-        {
-          "id": "2070612055225483692",
-          "text": "in other news, we updated the 5.5 instant model used in chatgpt this week.\n\ni like its vibes.",
-          "created_at": "2026-06-26T20:55:58+00:00",
-          "like_count": 6322,
-          "retweet_count": 139,
-          "reply_count": 548,
-          "url": "https://x.com/sama/status/2070612055225483692"
-        },
-        {
-          "id": "2070614666288795703",
-          "text": "team cooked, spicily",
-          "created_at": "2026-06-26T21:06:21+00:00",
-          "like_count": 4781,
-          "retweet_count": 151,
-          "reply_count": 343,
-          "url": "https://x.com/sama/status/2070614666288795703"
-        },
-        {
-          "id": "2070609922631537024",
-          "text": "oh and also...750 token/sec coming to 5.6 sol in july!",
-          "created_at": "2026-06-26T20:47:30+00:00",
-          "like_count": 3734,
-          "retweet_count": 129,
-          "reply_count": 197,
-          "url": "https://x.com/sama/status/2070609922631537024"
-        }
-      ]
+      "tweets": []
     },
     {
       "handle": "DarioAmodei",
@@ -179,60 +106,11 @@
       "tweets": []
     },
     {
-      "handle": "demabortin",
-      "name": "Demis Hassabis",
-      "domain": "ai",
-      "tier": "exec",
-      "tweets": []
-    },
-    {
-      "handle": "JensenHuang",
-      "name": "Jensen Huang",
-      "domain": "ai",
-      "tier": "exec",
-      "tweets": []
-    },
-    {
-      "handle": "satabortin",
-      "name": "Satya Nadella",
-      "domain": "ai",
-      "tier": "exec",
-      "tweets": []
-    },
-    {
       "handle": "AmandaAskell",
       "name": "Amanda Askell (Anthropic)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": [
-        {
-          "id": "2069910673921048985",
-          "text": "No more goals plz brazil, thank you.",
-          "created_at": "2026-06-24T22:28:56+00:00",
-          "like_count": 435,
-          "retweet_count": 13,
-          "reply_count": 51,
-          "url": "https://x.com/AmandaAskell/status/2069910673921048985"
-        },
-        {
-          "id": "2069916038918250755",
-          "text": "update: nooo",
-          "created_at": "2026-06-24T22:50:15+00:00",
-          "like_count": 358,
-          "retweet_count": 6,
-          "reply_count": 12,
-          "url": "https://x.com/AmandaAskell/status/2069916038918250755"
-        },
-        {
-          "id": "2069925173999083974",
-          "text": "update 2: nooo",
-          "created_at": "2026-06-24T23:26:33+00:00",
-          "like_count": 141,
-          "retweet_count": 1,
-          "reply_count": 6,
-          "url": "https://x.com/AmandaAskell/status/2069925173999083974"
-        }
-      ]
+      "tweets": []
     },
     {
       "handle": "bcherny",
@@ -241,49 +119,40 @@
       "tier": "builder",
       "tweets": [
         {
-          "id": "2071379474277613732",
-          "text": "As engineering, product, design, DS, etc. melt into a new kind of role, I was reflecting on what roles might look like in the future. For example, when I look at the Claude Code team I see what I think is five archetypes:\n\n1. Prototyper: comes up with brand new ideas; churns out many ideas, most of which don't ship\n2. Builder: quickly turns a prototype/idea into production-grade product/infra\n3. Sweeper: cleans up the UI, simplifies the code and system, unships, optimizes performance\n4. Grower: takes a product that has been built and iterates on it to improve Product-Market Fit\n5. Maintainer: owns a mature system to make it secure, reliable, fast, and efficient as it scales\n\nMany people span across 2 roles, and sometimes 3 roles. I also notice that these roles are not really tied to job function -- eg. across Anthropic, some designers match category 1, some 2, some 3; same for engineers, PM, DS.\n\nA healthy team needs a mix of these, depending on the product:\n\n- A product that is new and pre-PMF needs people that are strong at 1+2+3\n- A product that is growing and has found PMF needs 2+3+4 and some 5\n- A product that has strong PMF needs 3+4+5 and some 2\n\nMaybe product roles of the future will look more like this, and less like the domain-specific roles of today?",
-          "created_at": "2026-06-28T23:45:25+00:00",
-          "like_count": 17488,
-          "retweet_count": 2001,
-          "reply_count": 802,
-          "url": "https://x.com/bcherny/status/2071379474277613732"
+          "id": "2071988881717871065",
+          "text": "Claude Desktop is now available on Linux (Ubuntu and Debian) in beta.\n\nAlongside the browser and terminal, you now get a first-class desktop experience with Claude Code, Claude Cowork, and chat on all paid plans. https://t.co/m0K9t198t4",
+          "created_at": "2026-06-30T16:06:59+00:00",
+          "like_count": 5355,
+          "retweet_count": 448,
+          "reply_count": 310,
+          "url": "https://x.com/ClaudeDevs/status/2071988881717871065"
         },
         {
-          "id": "2071647677591466098",
-          "text": "In the next version of Claude Code: subagents run in the background by default, so you can keep talking to Claude while your subagents work\n\nIf you want your agent to run in the foreground, just tell Claude",
-          "created_at": "2026-06-29T17:31:10+00:00",
-          "like_count": 6522,
-          "retweet_count": 247,
-          "reply_count": 411,
-          "url": "https://x.com/bcherny/status/2071647677591466098"
+          "id": "2072000214634742243",
+          "text": "You asked, we listened. Claude Desktop on Linux is here!\n\nDownload link: https://t.co/gjgHZvbKyi",
+          "created_at": "2026-06-30T16:52:01+00:00",
+          "like_count": 2671,
+          "retweet_count": 139,
+          "reply_count": 260,
+          "url": "https://x.com/bcherny/status/2072000214634742243"
         },
         {
-          "id": "2071385304494391305",
-          "text": "@kunchenguid Totally agree. Roles often change over time/project",
-          "created_at": "2026-06-29T00:08:35+00:00",
-          "like_count": 209,
-          "retweet_count": 1,
-          "reply_count": 9,
-          "url": "https://x.com/bcherny/status/2071385304494391305"
+          "id": "2071776847327805825",
+          "text": "@_david_cooley @tadasgedgaudas Have you tried the Claude Desktop app? It’s pretty much this",
+          "created_at": "2026-06-30T02:04:26+00:00",
+          "like_count": 2,
+          "retweet_count": 0,
+          "reply_count": 2,
+          "url": "https://x.com/bcherny/status/2071776847327805825"
         },
         {
-          "id": "2071650400684691736",
-          "text": "@tadasgedgaudas Yes, cooking something up",
-          "created_at": "2026-06-29T17:41:59+00:00",
-          "like_count": 97,
-          "retweet_count": 1,
-          "reply_count": 3,
-          "url": "https://x.com/bcherny/status/2071650400684691736"
-        },
-        {
-          "id": "2071650274549395875",
-          "text": "@yheushen We've been rolling it out gradually over the last week to a small subset of users",
-          "created_at": "2026-06-29T17:41:29+00:00",
-          "like_count": 78,
-          "retweet_count": 1,
-          "reply_count": 11,
-          "url": "https://x.com/bcherny/status/2071650274549395875"
+          "id": "2072085723671355515",
+          "text": "@nikhilsinghal Please report back",
+          "created_at": "2026-06-30T22:31:48+00:00",
+          "like_count": 0,
+          "retweet_count": 0,
+          "reply_count": 0,
+          "url": "https://x.com/bcherny/status/2072085723671355515"
         }
       ]
     },
@@ -292,70 +161,14 @@
       "name": "Cat Wu (Anthropic)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": [
-        {
-          "id": "2070578451854291178",
-          "text": "going into the weekend like https://t.co/4z3yYqFpUz",
-          "created_at": "2026-06-26T18:42:27+00:00",
-          "like_count": 641,
-          "retweet_count": 16,
-          "reply_count": 73,
-          "url": "https://x.com/amorriscode/status/2070578451854291178"
-        },
-        {
-          "id": "2069486403696869555",
-          "text": "There are 100s of ways you can customize Claude Tag for any use case.\n\nHere are 6 common flows that have resonated with our internal users and external design partners:",
-          "created_at": "2026-06-23T18:23:02+00:00",
-          "like_count": 491,
-          "retweet_count": 25,
-          "reply_count": 26,
-          "url": "https://x.com/_catwu/status/2069486403696869555"
-        },
-        {
-          "id": "2069468902216945939",
-          "text": "Incident response\n\nTag Claude in the incident thread when the page lands. It pulls graphs, diffs the deploy, comes back with root cause and the author tagged. \n\nYour team approves in-thread. Claude opens the fix, lands it, watches the metric recover, and resolves the page.",
-          "created_at": "2026-06-23T17:13:29+00:00",
-          "like_count": 418,
-          "retweet_count": 11,
-          "reply_count": 25,
-          "url": "https://x.com/ClaudeDevs/status/2069468902216945939"
-        },
-        {
-          "id": "2070613405237432766",
-          "text": "split screen is one of my fave claude code on desktop features!",
-          "created_at": "2026-06-26T21:01:20+00:00",
-          "like_count": 372,
-          "retweet_count": 13,
-          "reply_count": 35,
-          "url": "https://x.com/_catwu/status/2070613405237432766"
-        },
-        {
-          "id": "2069481892475445695",
-          "text": "(Look mom - I made it!)\n\nLearn more about configuring agent identity and some of the key decisions we made for Claude Tag- https://t.co/WUIE79mB9d https://t.co/Mh3zEepVMg",
-          "created_at": "2026-06-23T18:05:06+00:00",
-          "like_count": 278,
-          "retweet_count": 20,
-          "reply_count": 28,
-          "url": "https://x.com/noahzweben/status/2069481892475445695"
-        }
-      ]
+      "tweets": []
     },
     {
       "handle": "alexalbert__",
       "name": "Alex Albert (Anthropic)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": [
-        {
-          "id": "2069470389391241314",
-          "text": "This has completely changed how I work with Claude. It feels less like using a tool and more like managing a team.",
-          "created_at": "2026-06-23T17:19:24+00:00",
-          "like_count": 557,
-          "retweet_count": 15,
-          "reply_count": 41,
-          "url": "https://x.com/alexalbert__/status/2069470389391241314"
-        }
-      ]
+      "tweets": []
     },
     {
       "handle": "rauchg",
@@ -364,49 +177,49 @@
       "tier": "builder",
       "tweets": [
         {
-          "id": "2071620375621009416",
-          "text": "Voice agents, now on Vercel.\n\nRealtime, speech and transcription are now live on AI Gateway. Build with 𝚞𝚜𝚎𝚁𝚎𝚊𝚕𝚝𝚒𝚖𝚎, 𝚐𝚎𝚗𝚎𝚛𝚊𝚝𝚎𝚂𝚙𝚎𝚎𝚌𝚑 &amp; 𝚝𝚛𝚊𝚗𝚜𝚌𝚛𝚒𝚋𝚎 on AI SDK 7. https://t.co/kVVchomKPw",
-          "created_at": "2026-06-29T15:42:41+00:00",
-          "like_count": 1318,
-          "retweet_count": 79,
-          "reply_count": 56,
-          "url": "https://x.com/vercel/status/2071620375621009416"
+          "id": "2071951027302224262",
+          "text": "You can now run any Dockerfile on Vercel.\n\n# 𝙳𝚘𝚌𝚔𝚎𝚛𝚏𝚒𝚕𝚎.𝚟𝚎𝚛𝚌𝚎𝚕\n𝙵𝚁𝙾𝙼 𝚐𝚘𝚕𝚊𝚗𝚐:𝟷.𝟸𝟺\n𝙲𝙾𝙿𝚈 . .\n𝚁𝚄𝙽 𝚐𝚘 𝚋𝚞𝚒𝚕𝚍 -𝚘 /𝚜𝚎𝚛𝚟𝚎𝚛 .\n𝙲𝙼𝙳 [\"/𝚜𝚎𝚛𝚟𝚎𝚛\"]\n\nhttps://t.co/xOUMi4zxpD",
+          "created_at": "2026-06-30T13:36:34+00:00",
+          "like_count": 3385,
+          "retweet_count": 409,
+          "reply_count": 182,
+          "url": "https://x.com/vercel/status/2071951027302224262"
         },
         {
-          "id": "2071612651684106518",
-          "text": "So excited for the @vercel ships this week… some would say a decade in the making. any guesses? https://t.co/zL0V3vXV1N",
-          "created_at": "2026-06-29T15:11:59+00:00",
-          "like_count": 852,
-          "retweet_count": 11,
-          "reply_count": 108,
-          "url": "https://x.com/rauchg/status/2071612651684106518"
+          "id": "2071951861112840501",
+          "text": "The time is now",
+          "created_at": "2026-06-30T13:39:53+00:00",
+          "like_count": 1107,
+          "retweet_count": 27,
+          "reply_count": 83,
+          "url": "https://x.com/rauchg/status/2071951861112840501"
         },
         {
-          "id": "2071621345151009184",
-          "text": "Voice agents now on Vercel",
-          "created_at": "2026-06-29T15:46:32+00:00",
-          "like_count": 665,
-          "retweet_count": 16,
-          "reply_count": 53,
-          "url": "https://x.com/rauchg/status/2071621345151009184"
+          "id": "2071966055308607765",
+          "text": "Vercel Services\n\nYou can now collocate e.g.: a Python backend API, an ExpressJS server, and a React SPA in one Vercel project.\n\ntl:dr;\n▪️ You can run all locally with 𝚟𝚌 𝚍𝚎𝚟 \n▪️ Deploy and rollback all at once\n▪️ Observe, monitor, debug together\n▪️ Internal networking",
+          "created_at": "2026-06-30T14:36:17+00:00",
+          "like_count": 876,
+          "retweet_count": 22,
+          "reply_count": 63,
+          "url": "https://x.com/rauchg/status/2071966055308607765"
         },
         {
-          "id": "2071647669467201657",
-          "text": "Turbopack: What's new in Next.js 16.3 Preview\n\n• Up to 90% less memory in dev\n• Up to 5.5x faster builds via Filesystem Cache\n• Faster HMR and dev startup\n• Experimental Rust React Compiler\n• 𝚒𝚖𝚙𝚘𝚛𝚝.𝚖𝚎𝚝𝚊.𝚐𝚕𝚘𝚋 support\n\nhttps://t.co/AE9PYSn6ZW",
-          "created_at": "2026-06-29T17:31:08+00:00",
-          "like_count": 599,
-          "retweet_count": 46,
-          "reply_count": 17,
-          "url": "https://x.com/nextjs/status/2071647669467201657"
+          "id": "2071951670058324353",
+          "text": "Vercel Services gives your full stack app atomic deployment and rollback, a single preview URL, and a private network between services.\n\nOne Vercel project for your entire application ↓\nhttps://t.co/JbxWFIFeqe",
+          "created_at": "2026-06-30T13:39:07+00:00",
+          "like_count": 459,
+          "retweet_count": 29,
+          "reply_count": 19,
+          "url": "https://x.com/vercel/status/2071951670058324353"
         },
         {
-          "id": "2071653061748035994",
-          "text": "Massive performance and memory usage improvements in @nextjs. \n\nTurbopack’s bet on the filesystem cache pays off greatly in a world of agents hammering 𝚗𝚎𝚡𝚝 𝚋𝚞𝚒𝚕𝚍.",
-          "created_at": "2026-06-29T17:52:34+00:00",
-          "like_count": 500,
-          "retweet_count": 13,
-          "reply_count": 32,
-          "url": "https://x.com/rauchg/status/2071653061748035994"
+          "id": "2072041488012439803",
+          "text": "We are rebuilding Hydrogen from the ground up with @Shopify.\n\nIt's agent-first, runtime-agnostic, and runs anywhere JavaScript does. Learn more and try the Next.js developer preview ↓\n\nhttps://t.co/Lxl4j3DVc4",
+          "created_at": "2026-06-30T19:36:02+00:00",
+          "like_count": 282,
+          "retweet_count": 10,
+          "reply_count": 20,
+          "url": "https://x.com/vercel/status/2072041488012439803"
         }
       ]
     },
@@ -417,49 +230,31 @@
       "tier": "builder",
       "tweets": [
         {
-          "id": "2069515846666572282",
-          "text": "Have spent all of 2026 building something new post-FaZe. Excited to join @ycombinator this summer as I continue on this next chapter.\n\nTen years ago I was 20, moving out of the FaZe House in New York to our new place in Newport Beach.\n\nThis week I turned 30, and I’m feeling the same excitement here in SF that I felt in 2016. Excited to share more soon 🙏🏻",
-          "created_at": "2026-06-23T20:20:02+00:00",
-          "like_count": 8662,
-          "retweet_count": 225,
-          "reply_count": 693,
-          "url": "https://x.com/FaZeApex/status/2069515846666572282"
+          "id": "2071972062202343590",
+          "text": "We're coming out of stealth.\n\nWe've built our first racks after a successful A0 tapeout, $1B+ in customer contracts, and $800m raised.\n\nEarly customer tests show us achieving SOTA throughput, latency, and power efficiency on inference workloads.\n\nOur first racks ship this summer. https://t.co/FLccrkLTza",
+          "created_at": "2026-06-30T15:00:09+00:00",
+          "like_count": 5957,
+          "retweet_count": 606,
+          "reply_count": 419,
+          "url": "https://x.com/Etched/status/2071972062202343590"
         },
         {
-          "id": "2069588152285794373",
-          "text": "It starts with a prompt — it’s a whole lot of work to get here — but it starts with an idea.\n\nCongrats Yousef and team! https://t.co/ARUtRHwvFf",
-          "created_at": "2026-06-24T01:07:21+00:00",
-          "like_count": 1496,
-          "retweet_count": 37,
-          "reply_count": 41,
-          "url": "https://x.com/amasad/status/2069588152285794373"
+          "id": "2071992110132117740",
+          "text": "AI is expensive to run partly because most workloads today run on generic hardware designed pre-LLMs. Etched is the first system designed from the ground up for modern inference.",
+          "created_at": "2026-06-30T16:19:49+00:00",
+          "like_count": 972,
+          "retweet_count": 54,
+          "reply_count": 35,
+          "url": "https://x.com/amasad/status/2071992110132117740"
         },
         {
-          "id": "2070199548694437957",
-          "text": "Major updates to mobile app coming soon!",
-          "created_at": "2026-06-25T17:36:49+00:00",
-          "like_count": 177,
-          "retweet_count": 8,
-          "reply_count": 25,
-          "url": "https://x.com/amasad/status/2070199548694437957"
-        },
-        {
-          "id": "2071379664321266111",
-          "text": "@jhasanofficial @Replit The “lite” option runs Kimi model. Try it. Unfortunately as of now, GLM and Kimi (best open coding models)  both consume more tokens per task than frontier models and are less efficient. You can see it in the benchmarks as well. But they’re getting better quick.",
-          "created_at": "2026-06-28T23:46:11+00:00",
-          "like_count": 71,
-          "retweet_count": 0,
-          "reply_count": 8,
-          "url": "https://x.com/amasad/status/2071379664321266111"
-        },
-        {
-          "id": "2069322872456364540",
-          "text": "K-coding",
-          "created_at": "2026-06-23T07:33:13+00:00",
-          "like_count": 67,
-          "retweet_count": 2,
-          "reply_count": 8,
-          "url": "https://x.com/amasad/status/2069322872456364540"
+          "id": "2071992670394765407",
+          "text": "World’s first subway hackathon!",
+          "created_at": "2026-06-30T16:22:03+00:00",
+          "like_count": 133,
+          "retweet_count": 3,
+          "reply_count": 13,
+          "url": "https://x.com/amasad/status/2071992670394765407"
         }
       ]
     },
@@ -468,122 +263,9 @@
       "name": "Josh Woodward (Google Labs)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": [
-        {
-          "id": "2069408025362714957",
-          "text": "⚽️Turn your team loyalty into a custom trading card, mural, or virtual plushie in @GeminiApp\n\nHow to create yours:\n\n1) Go to https://t.co/z0bvXTam3G or open the app\n2) Tap Images (side panel)\n3) Select the \"Get in the game\" template\n4) Upload your photo and share your output here https://t.co/aysNORY2ea",
-          "created_at": "2026-06-23T13:11:35+00:00",
-          "like_count": 263,
-          "retweet_count": 21,
-          "reply_count": 24,
-          "url": "https://x.com/joshwoodward/status/2069408025362714957"
-        },
-        {
-          "id": "2069406832523624696",
-          "text": "Florida State University: \"Shortly after introducing NotebookLM on campus, we watched students who were struggling with a ‘C’ grade completely transform their study habits and their grades in a matter of weeks.\"\n\nhttps://t.co/xcPbvA37s0",
-          "created_at": "2026-06-23T13:06:51+00:00",
-          "like_count": 186,
-          "retweet_count": 38,
-          "reply_count": 14,
-          "url": "https://x.com/joshwoodward/status/2069406832523624696"
-        },
-        {
-          "id": "2069804254340977119",
-          "text": "@SaiNemani1 @GeminiApp We're looking into this now…",
-          "created_at": "2026-06-24T15:26:03+00:00",
-          "like_count": 48,
-          "retweet_count": 0,
-          "reply_count": 3,
-          "url": "https://x.com/joshwoodward/status/2069804254340977119"
-        },
-        {
-          "id": "2069411817244283212",
-          "text": "@ggg78g89 Soon! We got a lot of applications, so going through all of them.",
-          "created_at": "2026-06-23T13:26:39+00:00",
-          "like_count": 3,
-          "retweet_count": 0,
-          "reply_count": 1,
-          "url": "https://x.com/joshwoodward/status/2069411817244283212"
-        },
-        {
-          "id": "2069553496009981958",
-          "text": "@KevinTweets1 Thanks for using it! :)",
-          "created_at": "2026-06-23T22:49:38+00:00",
-          "like_count": 1,
-          "retweet_count": 0,
-          "reply_count": 0,
-          "url": "https://x.com/joshwoodward/status/2069553496009981958"
-        }
-      ]
-    },
-    {
-      "handle": "ArjunMurti",
-      "name": "Arjun Murti",
-      "domain": "energy",
-      "tier": "analyst",
       "tweets": []
-    },
-    {
-      "handle": "DoombergT",
-      "name": "Doomberg",
-      "domain": "energy",
-      "tier": "analyst",
-      "tweets": []
-    },
-    {
-      "handle": "JavierBlas",
-      "name": "Javier Blas (Bloomberg)",
-      "domain": "energy",
-      "tier": "analyst",
-      "tweets": [
-        {
-          "id": "2071484877120184353",
-          "text": "Middle East wars are now scheduled from 9pm Friday to 10.30pm Sunday (GMT). That’s it. Fighting outside designed non-market hours isn’t allowed.",
-          "created_at": "2026-06-29T06:44:15+00:00",
-          "like_count": 4502,
-          "retweet_count": 778,
-          "reply_count": 102,
-          "url": "https://x.com/JavierBlas/status/2071484877120184353"
-        },
-        {
-          "id": "2071155042569052229",
-          "text": "Two oil tankers and two LPG carriers are crossing the Strait of Hormuz **inbound** via the Omani route with their AIS turned on (under heavy US Navy / Airforce watch). Washington trying hard to keep the Omani route on.",
-          "created_at": "2026-06-28T08:53:37+00:00",
-          "like_count": 841,
-          "retweet_count": 148,
-          "reply_count": 54,
-          "url": "https://x.com/JavierBlas/status/2071155042569052229"
-        },
-        {
-          "id": "2070828154134966312",
-          "text": "The Omani route in the Strait of Hormuz is now operating in both directions (previously, tankers were encouraged only out, rather than in). Now, the route is cleared also for inbound tankers. https://t.co/T2EBjJhTcF",
-          "created_at": "2026-06-27T11:14:40+00:00",
-          "like_count": 673,
-          "retweet_count": 167,
-          "reply_count": 96,
-          "url": "https://x.com/JavierBlas/status/2070828154134966312"
-        },
-        {
-          "id": "2070186310267019357",
-          "text": "Beijing’s oil import strike continues: \n\nChinese companies sold West Africa crude on Thursday, with several Nigerian and Angolan grades hitting the widest discount in at least ~15 years to the Dated Brent benchmark. \n\nIf China doesn’t show up very, very soon (or Iran doesn’t up its Hormuz games), it’s going to get ugly in the physical oil market.",
-          "created_at": "2026-06-25T16:44:13+00:00",
-          "like_count": 789,
-          "retweet_count": 96,
-          "reply_count": 60,
-          "url": "https://x.com/JavierBlas/status/2070186310267019357"
-        },
-        {
-          "id": "2070396326445973603",
-          "text": "PHOTOS OF THE DAY: Saudi Arabia is loading simultaneously 4 supertankers in the Persian Gulf. Two started loading yesterday at the single-point moorings of Ju’aymah (see post below) with their AIS visible (and a 3rd is waiting nearby). This morning, two others appear to be loading at Ras Tanura's Sea Islands, the world's largest oil terminal. One is broadcasting on AIS, the other is dark.\n📷 @CopernicusEU Sentinel-1 SAR 🛰️",
-          "created_at": "2026-06-26T06:38:44+00:00",
-          "like_count": 584,
-          "retweet_count": 106,
-          "reply_count": 20,
-          "url": "https://x.com/JavierBlas/status/2070396326445973603"
-        }
-      ]
     }
   ],
   "errors": null,
-  "generated_at": "2026-06-30T01:38:10.738956+00:00"
+  "generated_at": "2026-06-30T23:05:59.383503+00:00"
 }

@@ -1,6 +1,22 @@
 {
   "podcasts": [
     {
+      "channel": "a16z",
+      "domain": "ai",
+      "title": "Rick Rubin on AI, Creativity, and The Way of Code",
+      "pub_date": "2026-07-01T10:00:00+00:00",
+      "link": "https://a16z.simplecast.com/episodes/rick-rubin-on-ai-creativity-and-the-way-of-code-KUxKnIS1",
+      "audio_url": "https://mgln.ai/e/1344/afp-848985-injected.calisto.simplecastaudio.com/3f86df7b-51c6-4101-88a2-550dba782de8/episodes/07dd0a8b-3522-4806-b39e-a610f75b3e9b/audio/128/default.mp3?aid=rss_feed&awCollectionId=3f86df7b-51c6-4101-88a2-550dba782de8&awEpisodeId=07dd0a8b-3522-4806-b39e-a610f75b3e9b&feed=JGE3yC0V",
+      "duration": "01:15:58",
+      "description": "<p>Rick Rubin joins Marc Andreessen, Ben Horowitz, Anjney Midha, and Erik Torenberg to discuss creativity, artificial intelligence, and his book <i>The Way of Code</i>, which reimagines the <i>Tao Te Ching</i> for the age of AI.</p>\n<p>The conversation explores vibe coding, remix culture, artistic process, entrepreneurship, and what AI changes, and doesn't change, about creativity. Rubin argues that AI is best understood not as a replacement for artists, but as another creative tool, one that expands what's possible while making taste, curiosity, and individual perspective even more valuable.</p>\n<p>Along the way, they discuss music, philosophy, startup building, collective intelligence, and why the most enduring creative work begins with staying true to yourself rather than trying to satisfy an audience.</p>\n<p> </p>\n<p>Resources:</p>\n<p>Follow Rick Rubin on X:<a href=\"https://x.com/rickrubin\" rel=\"noopener noreferrer\"> https://x.com/rickrubin</a></p>\n<p>Follow Marc Andreessen on X:<a href=\"https://x.com/pmarca\" rel=\"noopener noreferrer\"> https://x.com/pmarca</a></p>\n<p>Follow Ben Horowitz on X:<a href=\"https://x.com/bhorowitz\" rel=\"noopener noreferrer\"> https://x.com/bhorowitz</a></p>\n<p>Follow Anjney Midha on X:<a href=\"https://x.com/AnjneyMidha\" rel=\"noopener noreferrer\"> https://x.com/AnjneyMidha</a></p>\n<p><p><strong>Stay Updated:</strong></p><p>Find a16z on YouTube: <a href=\"https://www.youtube.com/@a16z\">YouTube</a></p><p>Find a16z on <a href=\"https://x.com/a16z\">X</a></p><p>Find a16z on<a href=\"https://www.linkedin.com/company/a16z\"> LinkedIn</a></p><p>Listen to the a16z Show on <a href=\"https://open.spotify.com/show/5bC65RDvs3oxnLyqqvkUYX?si=3E8B3qT9TyiwAHJ7JnaKbg\">Spotify</a></p><p>Listen to the a16z Show on <a href=\"https://podcasts.apple.com/us/podcast/a16z-podcast/id842818711\">Apple Podcasts</a></p><p>Follow our host: <a href=\"https://twitter.com/eriktorenberg\">https://twitter.com/eriktorenberg</a></p><p>&nbsp;</p><p>Please note that the content here i",
+      "transcript": null,
+      "transcript_available": false,
+      "transcript_source": null,
+      "transcript_url": null,
+      "transcript_video_id": null,
+      "transcript_error": "episode_page: No transcript link or transcript-like page text found; youtube: No YouTube video id in link"
+    },
+    {
       "channel": "Lex Fridman",
       "domain": "ai",
       "title": "#498 – Anthony Kaldellis: Roman Empire, Byzantine Empire, Rise & Fall of Empires",
@@ -47,27 +63,11 @@
       "transcript_url": null,
       "transcript_video_id": null,
       "transcript_error": "episode_page: No transcript link or transcript-like page text found; youtube: No YouTube video id in link"
-    },
-    {
-      "channel": "a16z",
-      "domain": "ai",
-      "title": "Building AI for Creators | Luma & Phota Labs",
-      "pub_date": "2026-06-30T10:00:00+00:00",
-      "link": "https://a16z.simplecast.com/episodes/building-ai-for-creators-luma-phota-labs-0nl9Q52H",
-      "audio_url": "https://mgln.ai/e/1344/afp-848985-injected.calisto.simplecastaudio.com/3f86df7b-51c6-4101-88a2-550dba782de8/episodes/f6e7db05-5707-4d2f-a4da-0fb590be9c89/audio/128/default.mp3?aid=rss_feed&awCollectionId=3f86df7b-51c6-4101-88a2-550dba782de8&awEpisodeId=f6e7db05-5707-4d2f-a4da-0fb590be9c89&feed=JGE3yC0V",
-      "duration": "00:48:09",
-      "description": "<p>Yoko Li speaks with Luma's Head of Applied Research Matt Tancik and Phota Labs cofounder and CTO Zach Xia about how AI is changing creativity, photography, and the tools people use to make art.</p>\n<p>The conversation explores the evolving relationship between artists and AI, from image generation and personalization to creative workflows, controllability, and agentic design tools. </p>\n<p>They discuss personalization, photography, creative software, model design, evaluation, and why the future of creative tools may depend less on generating content and more on helping people express ideas they couldn't easily realize before. Along the way, they explore AI agents, interfaces, and how creators are already using these tools in unexpected ways.</p>\n<p> </p>\n<p>Resources:</p>\n<p>Follow Matt on LinkedIn: <a href=\"https://www.linkedin.com/in/matthewtancik/\" rel=\"noopener noreferrer\">https://www.linkedin.com/in/matthewtancik/</a></p>\n<p>Follow Zach on LinkedIn: <a href=\"https://www.linkedin.com/in/zhihao-zach-xia/\" rel=\"noopener noreferrer\">https://www.linkedin.com/in/zhihao-zach-xia/</a></p>\n<p>Follow Yoko Li on X: <a href=\"https://x.com/stuffyokodraws\" rel=\"noopener noreferrer\">https://x.com/stuffyokodraws</a></p>\n<p><p><strong>Stay Updated:</strong></p><p>Find a16z on YouTube: <a href=\"https://www.youtube.com/@a16z\">YouTube</a></p><p>Find a16z on <a href=\"https://x.com/a16z\">X</a></p><p>Find a16z on<a href=\"https://www.linkedin.com/company/a16z\"> LinkedIn</a></p><p>Listen to the a16z Show on <a href=\"https://open.spotify.com/show/5bC65RDvs3oxnLyqqvkUYX?si=3E8B3qT9TyiwAHJ7JnaKbg\">Spotify</a></p><p>Listen to the a16z Show on <a href=\"https://podcasts.apple.com/us/podcast/a16z-podcast/id842818711\">Apple Podcasts</a></p><p>Follow our host: <a href=\"https://twitter.com/eriktorenberg\">https://twitter.com/eriktorenberg</a></p><p>&nbsp;</p><p>Please note that the content here is for informational purposes only; should NOT be taken as legal, business, tax, or investment advic",
-      "transcript": null,
-      "transcript_available": false,
-      "transcript_source": null,
-      "transcript_url": null,
-      "transcript_video_id": null,
-      "transcript_error": "episode_page: No transcript link or transcript-like page text found; youtube: No YouTube video id in link"
     }
   ],
   "errors": [
     "Latent Space: Client error '403 Forbidden' for url 'https://api.substack.com/feed/podcast/1084089.rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
     "Lenny's Podcast: Client error '403 Forbidden' for url 'https://api.substack.com/feed/podcast/10845.rss'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
   ],
-  "generated_at": "2026-07-01T09:27:16.805466+00:00"
+  "generated_at": "2026-07-01T10:06:54.721758+00:00"
 }

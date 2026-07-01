@@ -111,7 +111,7 @@ NOISE_PATTERNS = (
     r"please report back",
 )
 
-X_FORMAT_VERSION = "x-translation-v1"
+X_FORMAT_VERSION = "x-translation-v2"
 PAPER_FORMAT_VERSION = "paper-brief-v1"
 PODCAST_FILTER_VERSION = "podcast-topic-filter-v1"
 
@@ -145,12 +145,18 @@ def needs_unicode_escape_output(llm_cfg: dict[str, Any], kind: str) -> bool:
 
 
 def decode_unicode_escape_output(text: str) -> str:
-    if "\\u" not in text and "\\U" not in text:
-        return text
-    try:
-        return codecs.decode(text, "unicode_escape")
-    except Exception:
-        return text
+    decoded = text
+    for _ in range(3):
+        if "\\u" not in decoded and "\\U" not in decoded:
+            break
+        try:
+            next_decoded = codecs.decode(decoded, "unicode_escape")
+        except Exception:
+            break
+        if next_decoded == decoded:
+            break
+        decoded = next_decoded
+    return decoded
 
 
 def strip_wrapping_markdown_fence(text: str) -> str:
@@ -170,6 +176,7 @@ def mojibake_score(text: str) -> int:
 
 
 def validate_llm_output(text: str, llm_cfg: dict[str, Any], kind: str) -> str:
+    text = strip_wrapping_markdown_fence(text)
     if needs_unicode_escape_output(llm_cfg, kind):
         text = decode_unicode_escape_output(text)
     text = strip_wrapping_markdown_fence(text)

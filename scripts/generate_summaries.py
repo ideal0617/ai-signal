@@ -409,10 +409,18 @@ def is_task_cached(task: dict[str, Any], force: bool) -> bool:
     old_item = task.get("old_item")
     return bool(
         old_item
+        and old_item.get("status") != "error"
         and old_item.get("source_hash") == task["source_hash"]
         and (ROOT_DIR / old_item.get("summary_path", "")).exists()
         and not force
     )
+
+
+def previous_success(task: dict[str, Any]) -> dict[str, Any] | None:
+    old_item = task.get("old_item")
+    if old_item and old_item.get("status") != "error" and (ROOT_DIR / old_item.get("summary_path", "")).exists():
+        return old_item
+    return None
 
 
 def item_matches_domains(item: dict[str, Any], profile: dict[str, Any]) -> bool:
@@ -825,6 +833,8 @@ def main() -> None:
         profile_updates = {"x": [], "podcasts": [], "papers": []}
 
         def handle_result(result: dict[str, Any], kind: str) -> None:
+            if not result:
+                return
             if kind == "x":
                 profile_updates["x"].append(result)
             elif kind == "podcasts":
@@ -854,6 +864,11 @@ def main() -> None:
             try:
                 return summarize_task(task, cfg, profile_name, profile, args.force)
             except Exception as exc:  # noqa: BLE001 - keep feed generation best-effort.
+                fallback = previous_success(task)
+                if fallback:
+                    print(f"  ! failed, keeping previous summary: {task['kind']} | {title} | {exc}")
+                    return fallback | {"status": "cached_after_error"}
+                print(f"  ! failed, no previous summary: {task['kind']} | {title} | {exc}")
                 return {
                     "id": task["id"],
                     "title": title,

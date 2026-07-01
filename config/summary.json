@@ -24,7 +24,7 @@
     "model": "doubao-seed-2-1-pro-260628",
     "temperature": 0.2,
     "max_tokens": 2048,
-    "timeout_seconds": 90
+    "timeout_seconds": 120
   },
   "papers_llm": {
     "provider": "ark",

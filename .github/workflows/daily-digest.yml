@@ -47,7 +47,7 @@ jobs:
           ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
         run: |
           if [ -n "$ARK_API_KEY" ]; then
-            python scripts/generate_summaries.py --profile zh_standard --type x --max-workers 6
+            python scripts/generate_summaries.py --profile zh_standard --type x --max-workers 3
             python scripts/generate_summaries.py --profile zh_standard --type papers --limit 12 --max-workers 4
           else
             echo "ARK_API_KEY is not set; skipping Doubao X and paper summaries."

@@ -5,14 +5,70 @@
       "name": "Andrej Karpathy",
       "domain": "ai",
       "tier": "analyst",
-      "tweets": []
+      "tweets": [
+        {
+          "id": "2072061140943921550",
+          "text": "Congrats!! I was impressed to learn about some of the engineering wizardry (e.g. *very* low voltage domains, cluster scale memory, ...) that goes into tokens/watt maxxing of state of the art LLMs at interactive tokens/sec/user. Esp fun and memorable is the idea that this is engineering at the \"opposite\" regime to that of power transmission lines: very low voltage high current (at tiny distances) vs. very high voltage & low current (at great distances). Looking forward to more!",
+          "created_at": "2026-06-30T20:54:07+00:00",
+          "like_count": 820,
+          "retweet_count": 28,
+          "reply_count": 10,
+          "url": "https://x.com/karpathy/status/2072061140943921550"
+        }
+      ]
     },
     {
       "handle": "swyx",
       "name": "Swyx (Shawn Wang)",
       "domain": "ai",
       "tier": "analyst",
-      "tweets": []
+      "tweets": [
+        {
+          "id": "2071972449277898924",
+          "text": "Good morning @aiDotEngineer !\nAre we talking loops today?",
+          "created_at": "2026-06-30T15:01:41+00:00",
+          "like_count": 352,
+          "retweet_count": 8,
+          "reply_count": 40,
+          "url": "https://x.com/steipete/status/2071972449277898924"
+        },
+        {
+          "id": "2071977886991679715",
+          "text": "we are talking loops today ✅ https://t.co/aorwoqPHZy",
+          "created_at": "2026-06-30T15:23:18+00:00",
+          "like_count": 46,
+          "retweet_count": 2,
+          "reply_count": 6,
+          "url": "https://x.com/swyx/status/2071977886991679715"
+        },
+        {
+          "id": "2072048730581405800",
+          "text": "very successful first poster sessions day at AIEWF, thanks to @heathercmiller and @ACM_President for the support!!\n\ntomorrow: Poaster sessions! submit your hottest tweets to @vibhuuuus for printing!\n\nspotted: left shark https://t.co/nv2I2l00Oe",
+          "created_at": "2026-06-30T20:04:48+00:00",
+          "like_count": 35,
+          "retweet_count": 3,
+          "reply_count": 8,
+          "url": "https://x.com/swyx/status/2072048730581405800"
+        },
+        {
+          "id": "2071864193435980081",
+          "text": "@badlogicgames @aiDotEngineer and that was just workshop day!",
+          "created_at": "2026-06-30T07:51:31+00:00",
+          "like_count": 14,
+          "retweet_count": 0,
+          "reply_count": 1,
+          "url": "https://x.com/swyx/status/2071864193435980081"
+        },
+        {
+          "id": "2071845141816787136",
+          "text": "@Scobleizer haha ty",
+          "created_at": "2026-06-30T06:35:49+00:00",
+          "like_count": 6,
+          "retweet_count": 0,
+          "reply_count": 1,
+          "url": "https://x.com/swyx/status/2071845141816787136"
+        }
+      ]
     },
     {
       "handle": "dylanpatel_",
@@ -61,7 +117,53 @@
       "name": "Boris Cherny (Claude Code)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": []
+      "tweets": [
+        {
+          "id": "2071988881717871065",
+          "text": "Claude Desktop is now available on Linux (Ubuntu and Debian) in beta.\n\nAlongside the browser and terminal, you now get a first-class desktop experience with Claude Code, Claude Cowork, and chat on all paid plans. https://t.co/m0K9t198t4",
+          "created_at": "2026-06-30T16:06:59+00:00",
+          "like_count": 6270,
+          "retweet_count": 560,
+          "reply_count": 329,
+          "url": "https://x.com/ClaudeDevs/status/2071988881717871065"
+        },
+        {
+          "id": "2072000214634742243",
+          "text": "You asked, we listened. Claude Desktop on Linux is here!\n\nDownload link: https://t.co/gjgHZvbKyi",
+          "created_at": "2026-06-30T16:52:01+00:00",
+          "like_count": 3147,
+          "retweet_count": 169,
+          "reply_count": 285,
+          "url": "https://x.com/bcherny/status/2072000214634742243"
+        },
+        {
+          "id": "2072105851457019944",
+          "text": "Agree",
+          "created_at": "2026-06-30T23:51:47+00:00",
+          "like_count": 575,
+          "retweet_count": 7,
+          "reply_count": 22,
+          "url": "https://x.com/bcherny/status/2072105851457019944"
+        },
+        {
+          "id": "2072024792056909935",
+          "text": "actually insane stuff happening here https://t.co/mLxEHoGSPQ",
+          "created_at": "2026-06-30T18:29:41+00:00",
+          "like_count": 271,
+          "retweet_count": 14,
+          "reply_count": 6,
+          "url": "https://x.com/paularambles/status/2072024792056909935"
+        },
+        {
+          "id": "2072085723671355515",
+          "text": "@nikhilsinghal Please report back",
+          "created_at": "2026-06-30T22:31:48+00:00",
+          "like_count": 0,
+          "retweet_count": 0,
+          "reply_count": 1,
+          "url": "https://x.com/bcherny/status/2072085723671355515"
+        }
+      ]
     },
     {
       "handle": "_catwu",
@@ -82,23 +184,107 @@
       "name": "Guillermo Rauch (Vercel)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": []
+      "tweets": [
+        {
+          "id": "2071951027302224262",
+          "text": "You can now run any Dockerfile on Vercel.\n\n# 𝙳𝚘𝚌𝚔𝚎𝚛𝚏𝚒𝚕𝚎.𝚟𝚎𝚛𝚌𝚎𝚕\n𝙵𝚁𝙾𝙼 𝚐𝚘𝚕𝚊𝚗𝚐:𝟷.𝟸𝟺\n𝙲𝙾𝙿𝚈 . .\n𝚁𝚄𝙽 𝚐𝚘 𝚋𝚞𝚒𝚕𝚍 -𝚘 /𝚜𝚎𝚛𝚟𝚎𝚛 .\n𝙲𝙼𝙳 [\"/𝚜𝚎𝚛𝚟𝚎𝚛\"]\n\nhttps://t.co/xOUMi4zxpD",
+          "created_at": "2026-06-30T13:36:34+00:00",
+          "like_count": 3935,
+          "retweet_count": 498,
+          "reply_count": 191,
+          "url": "https://x.com/vercel/status/2071951027302224262"
+        },
+        {
+          "id": "2071951861112840501",
+          "text": "The time is now",
+          "created_at": "2026-06-30T13:39:53+00:00",
+          "like_count": 1151,
+          "retweet_count": 28,
+          "reply_count": 83,
+          "url": "https://x.com/rauchg/status/2071951861112840501"
+        },
+        {
+          "id": "2071966055308607765",
+          "text": "Vercel Services\n\nYou can now collocate e.g.: a Python backend API, an ExpressJS server, and a React SPA in one Vercel project.\n\ntl:dr;\n▪️ You can run all locally with 𝚟𝚌 𝚍𝚎𝚟 \n▪️ Deploy and rollback all at once\n▪️ Observe, monitor, debug together\n▪️ Internal networking",
+          "created_at": "2026-06-30T14:36:17+00:00",
+          "like_count": 983,
+          "retweet_count": 27,
+          "reply_count": 71,
+          "url": "https://x.com/rauchg/status/2071966055308607765"
+        },
+        {
+          "id": "2071951670058324353",
+          "text": "Vercel Services gives your full stack app atomic deployment and rollback, a single preview URL, and a private network between services.\n\nOne Vercel project for your entire application ↓\nhttps://t.co/JbxWFIFeqe",
+          "created_at": "2026-06-30T13:39:07+00:00",
+          "like_count": 498,
+          "retweet_count": 29,
+          "reply_count": 20,
+          "url": "https://x.com/vercel/status/2071951670058324353"
+        },
+        {
+          "id": "2072123264843886709",
+          "text": "At dinner, tech executive is relaying his company’s @vercel feedback, and then his 12-year-old son’s @vercel feedback 😁 \n\nVercel is for everyone.",
+          "created_at": "2026-07-01T01:00:59+00:00",
+          "like_count": 366,
+          "retweet_count": 1,
+          "reply_count": 28,
+          "url": "https://x.com/rauchg/status/2072123264843886709"
+        }
+      ]
     },
     {
       "handle": "amasad",
       "name": "Amjad Masad (Replit)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": []
+      "tweets": [
+        {
+          "id": "2071972062202343590",
+          "text": "We're coming out of stealth.\n\nWe've built our first racks after a successful A0 tapeout, $1B+ in customer contracts, and $800m raised.\n\nEarly customer tests show us achieving SOTA throughput, latency, and power efficiency on inference workloads.\n\nOur first racks ship this summer. https://t.co/FLccrkLTza",
+          "created_at": "2026-06-30T15:00:09+00:00",
+          "like_count": 7041,
+          "retweet_count": 689,
+          "reply_count": 468,
+          "url": "https://x.com/Etched/status/2071972062202343590"
+        },
+        {
+          "id": "2071992110132117740",
+          "text": "AI is expensive to run partly because most workloads today run on generic hardware designed pre-LLMs. Etched is the first system designed from the ground up for modern inference.",
+          "created_at": "2026-06-30T16:19:49+00:00",
+          "like_count": 1228,
+          "retweet_count": 67,
+          "reply_count": 37,
+          "url": "https://x.com/amasad/status/2071992110132117740"
+        },
+        {
+          "id": "2071992670394765407",
+          "text": "World’s first subway hackathon!",
+          "created_at": "2026-06-30T16:22:03+00:00",
+          "like_count": 146,
+          "retweet_count": 3,
+          "reply_count": 15,
+          "url": "https://x.com/amasad/status/2071992670394765407"
+        }
+      ]
     },
     {
       "handle": "joshwoodward",
       "name": "Josh Woodward (Google Labs)",
       "domain": "ai",
       "tier": "builder",
-      "tweets": []
+      "tweets": [
+        {
+          "id": "2072141355816472918",
+          "text": "@Jason @sundarpichai Don’t worry. Full speed ahead on it!",
+          "created_at": "2026-07-01T02:12:52+00:00",
+          "like_count": 28,
+          "retweet_count": 0,
+          "reply_count": 3,
+          "url": "https://x.com/joshwoodward/status/2072141355816472918"
+        }
+      ]
     }
   ],
   "errors": null,
-  "generated_at": "2026-07-01T03:18:34.078499+00:00"
+  "generated_at": "2026-07-01T03:22:41.369160+00:00"
 }

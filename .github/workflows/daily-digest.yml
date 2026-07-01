@@ -24,6 +24,7 @@ on:
           - 'doubao-turbo'
           - 'deepseek-pro'
           - 'deepseek-flash'
+          - 'minimax-m3'
 
 permissions:
   contents: write
@@ -56,11 +57,14 @@ jobs:
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
           ARK_API_KEY: ${{ secrets.ARK_API_KEY }}
+          MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
           X_LLM_PRESET: ${{ inputs.x_llm || 'config' }}
         run: |
           pids=""
           if [ "$X_LLM_PRESET" = "deepseek-pro" ] || [ "$X_LLM_PRESET" = "deepseek-flash" ]; then
             x_key="$DEEPSEEK_API_KEY"
+          elif [ "$X_LLM_PRESET" = "minimax-m3" ]; then
+            x_key="$MINIMAX_API_KEY"
           else
             x_key="$ARK_API_KEY"
           fi

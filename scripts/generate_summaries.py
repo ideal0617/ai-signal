@@ -11,6 +11,7 @@ Usage:
 Env vars:
     DEEPSEEK_API_KEY - DeepSeek API key for podcast summaries in the default config.
     ARK_API_KEY - Ark/Doubao API key for X and paper summaries in the default config.
+    MINIMAX_API_KEY - MiniMax API key for optional X summaries.
     Required unless --dry-run is used.
 """
 
@@ -73,6 +74,16 @@ X_LLM_PRESETS = {
         "temperature": 0.2,
         "max_tokens": 512,
         "timeout_seconds": 45,
+    },
+    "minimax-m3": {
+        "provider": "minimax",
+        "api_key_env": "MINIMAX_API_KEY",
+        "base_url": "https://api.minimax.io/v1/chat/completions",
+        "model": "MiniMax-M3",
+        "thinking": {"type": "disabled"},
+        "temperature": 0.2,
+        "max_tokens": 512,
+        "timeout_seconds": 60,
     },
 }
 
@@ -386,7 +397,7 @@ def call_chat_completion(
         "temperature": llm_cfg.get("temperature", 0.2),
         "max_tokens": llm_cfg.get("max_tokens", 4096),
     }
-    if provider == "deepseek":
+    if provider in {"deepseek", "minimax"} and llm_cfg.get("thinking"):
         payload["thinking"] = llm_cfg.get("thinking", {"type": "disabled"})
 
     last_error: Exception | None = None

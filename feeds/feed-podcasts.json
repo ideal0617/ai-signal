@@ -3,6 +3,23 @@
     {
       "channel": "Latent Space",
       "domain": "ai",
+      "guid": "https://www.latent.space/p/aiewf-daily-dispatch-agency",
+      "title": "AIEWF Daily Dispatch: Autoresearch and the tension between AI and human agency",
+      "pub_date": "2026-07-02T06:13:49+00:00",
+      "link": "https://www.latent.space/p/aiewf-daily-dispatch-agency",
+      "audio_url": "https://substackcdn.com/image/fetch/$s_!yyfq!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5879355c-6a34-432c-bd6a-a4ace5715f5e_1280x850.jpeg",
+      "duration": "",
+      "description": "The software factory vision met resistance today from speakers defending human understanding and control.",
+      "transcript": "AIEWF Daily Dispatch: Autoresearch and the tension between AI and human agency\nSign in \nAINews: Weekday Roundups \nAIEWF Daily Dispatch: Autoresearch and the tension between AI and human agency \nThe software factory vision met resistance today from speakers defending human understanding and control. \nRichard MacManus \nJul 02, 2026 \n27 \n1\n“You can’t one-shot design.” Paul Bakaus at AIEWF today. \nWednesday was autoresearch day on the AI Engineer World’s Fair main stage. \nAutoresearch is — you guessed it — a kind of loop. Introspection co-founder Roland Gavrilescu explained it best in an interview with Latent Space this morning. He said autoresearch “allows you to build loops in which agents help maintain the system itself.” He called it an “outer loop” that “studies and maintains” the primary, inner loop. \nWhile autoresearch was not specifically mentioned by Anthropic’s Thariq Shihipar, who works on Claude Code, his keynote reflected the same idea of continuous discovery and adaptation. “The models are grown, not developed,” he said. “We sort of figure out and learn with the model as we use it.” \nAnthropic’s Thariq Shihipar at AIEWF. \nFormer Google engineering leader Addy Osmani also spoke about loops, but his framing differed sharply from Gavrilescu’s. \nWhere autoresearch puts agents into the loop that studies and maintains the system, Osmani argued that the outer loop should remain human. “Agents can run much more of the inner execution loop,” he said. “But that outer loop is still engineering.” His summary was even more direct: “That inner loop is capability. The outer loop is agency.” \nAddy Osmani’s Agency Ladder \nHuman agency is still important \nThis tension between what agents should do and what human engineers should retain was a recurring theme throughout the day. I also detected some pushback against the “software factory” framing that dominated Tuesday . This tweet from Notion’s Geoffrey Litt summed it up: \nGeoffrey Litt @geoffreylitt \n@charlieholtz preach!\n“Factories” is a depressing vision of the future, metaphors matter \n7:03 PM · Jun 30, 2026 · 35.5K Views \n22 Replies · 15 Reposts · 274 Likes \nLitt drew a large audience in the Design Engineering track today, where he spoke about “how and why humans need to understand our code.” Lily Zhang tweeted the key takeaway : “The future will be very polarized: those who understand will keep having the next big idea. Those who delegate understanding will be replaced by the agent.” \nLater, Litt posted a thread expanding on his argument. Although he acknowledged that agents are increasingly capable of handling more of the process, humans still need to understand what is happening. “You can learn what the agent is doing to make sure you can be an active participant in the creative process,” he wrote. \nAnother AIEWF speaker seeking to reinforce human agency was Paul Bakaus, who ran a session about his new design tool, Impeccable. Bakaus rejected both extremes: continuing to design entirely by hand, or “loop-maxing” toward a fully hands-off process. “The truth is somewhere in the middle,” he told me after his session. \nHis goal is to let agents handle the laborious first 80% of the work, before bringing the human back in “for the last 20% to make it a unique thing — to really put in your taste, your point of view.” \n“There is no auto, and there will be no auto.” \n- Paul Bakaus, Impeccable \nFor Bakaus, that is not simply a temporary limitation of today’s models. It is also about authorship and accepting responsibility for your work. “People need purpose, and they want to play a role in whatever they create,” he said. “When you work with the agent, then you feel more ownership of the product.” \nThis philosophy is built into Impeccable itself. “There is no auto, and there will be no auto,” Bakaus told the audience. What he means is that his product will never “one-shot” a solution — the user must be involved in the design process. “The point is to give you a way to steer what you want to end up with,” he added. \nGenerative media \nThe same question surfaced during a panel on generative media. As image, video and audio models become more capable, the issue is not merely what they can generate, but whose judgment shapes the result. \nNicole Brichtova, who works on Google’s generative media products, including Nano Banana, drew a distinction between average preference and cultivated expertise. “Somebody who has honed a craft has a very different level of expertise,” she said. “You see things that the average human will not.” \nThis matters because every model has a default aesthetic, whether its creators acknowledge it or not. “It ends up being us,” Brichtova said. “It ends up being the modeling teams.” She suggested that model developers may need to work more closely with people who have “a really creative point of view” — effectively bringing the art director back into the loop. \nShane Gu made the same point more broadly. Even as models become better at generating and refining their own outputs, he argued, humans must retain the sensitivity to notice what is wrong, generic or insufficient. \n“Maybe right now the AI can do a lot of all the promptings and it’s sufficient, but if it’s like that, never be satisfied [that] AI is generating the content. Always find your sensitivity.” \nAgentic sites \nEven the web itself — the ultimate human information network — is grappling with how much automation to use. \nIn his session this afternoon on “agentic sites,” Adobe principal scientist Carlos Sanchez demonstrated websites that assemble and personalize pages in real time based on a visitor’s intent. He presented this transition as increasingly inevitable: “This is now possible. It’s only going to get better. It’s only going to get cheaper. It’s only going to get faster.” \nBut Sanchez also sounded a note of caution. “With AI, it’s very easy to build things, but it’s hard to know what to build,” he told me afterwards. That becomes especially important when an agent is generating experiences on behalf of a brand. “You cannot just generate the whole site,” he said, because the result may stray outside the brand’s guidelines. \nThat brings the discussion back to autoresearch. Agents may increasingly be able to observe, evaluate and improve other agents, but humans must still define the goals, judge the results, and take responsibility for what the loop produces. \nAs impressive as agentic technology is now, and as compelling an idea as automated “software factories” might be, you still need humans in the loop. \n27 \n1\nPrevious \nDiscussion about this post \nComments Restacks \nTop Latest Discussions \nNo posts \nReady for more?\n© 2026 Latent.Space · Privacy ∙ Terms ∙ Collection notice \nStart your Substack Get the app \nSubstack is the home for great culture",
+      "transcript_available": true,
+      "transcript_source": "episode_page",
+      "transcript_url": "https://www.latent.space/p/aiewf-daily-dispatch-agency",
+      "transcript_video_id": null,
+      "transcript_error": null
+    },
+    {
+      "channel": "Latent Space",
+      "domain": "ai",
       "guid": "https://www.latent.space/p/autoresearch-introspection",
       "title": "Autoresearch: The feedback loop behind self-improving agents",
       "pub_date": "2026-07-01T23:52:30+00:00",
@@ -15,23 +32,6 @@
       "transcript_source": "episode_page",
       "transcript_url": "https://www.latent.space/p/autoresearch-introspection",
       "transcript_video_id": null,
-      "transcript_error": null
-    },
-    {
-      "channel": "SemiAnalysis",
-      "domain": "ai",
-      "guid": "L2Mh-Z6Lt58",
-      "title": "Deepseek v4 hits InferenceX: Megakernel + Huawei ascend NPU tests",
-      "pub_date": "2026-07-01T23:30:36+00:00",
-      "link": "https://www.youtube.com/shorts/L2Mh-Z6Lt58",
-      "audio_url": "",
-      "duration": "",
-      "description": "This week the InferenceX team discusses what it took to get DeepSeek V4 on InferenceX, changes in the model architecture, what is a MegaKernel, and initial performance on various accelerators including Huawei Ascend NPUs.",
-      "transcript": "On this week, we've got Cam, Kimbo, and Brian. And we are going to talk about everything Inference X. The latest Inference X article included a whole review about Deep Seek V4. Uh we're going to talk about the model itself, the implementation, how it's running on different hardware, some of the nice VLM versus SGLAN Twitter drama that's been going on, and a Genic benchmark that we're working on on and and yeah, lots of fun stuff. So guys, welcome to the show. Excited for this one.",
-      "transcript_available": true,
-      "transcript_source": "youtube_transcript_api",
-      "transcript_url": null,
-      "transcript_video_id": "L2Mh-Z6Lt58",
       "transcript_error": null
     },
     {
@@ -392,6 +392,8 @@
       "transcript_error": null
     }
   ],
-  "errors": null,
-  "generated_at": "2026-07-02T06:00:30.065722+00:00"
+  "errors": [
+    "SemiAnalysis: https://www.youtube.com/feeds/videos.xml?channel_id=UCf_KhBXw5TIV0A7butjgFhg attempt 1/3: Client error '404 Not Found' for url 'https://www.youtube.com/feeds/videos.xml?channel_id=UCf_KhBXw5TIV0A7butjgFhg'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404 | https://www.youtube.com/feeds/videos.xml?channel_id=UCf_KhBXw5TIV0A7butjgFhg attempt 2/3: Server error '500 Internal Server Error' for url 'https://www.youtube.com/feeds/videos.xml?channel_id=UCf_KhBXw5TIV0A7butjgFhg'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500 | https://www.youtube.com/feeds/videos.xml?channel_id=UCf_KhBXw5TIV0A7butjgFhg attempt 3/3: Client error '404 Not Found' for url 'https://www.youtube.com/feeds/videos.xml?channel_id=UCf_KhBXw5TIV0A7butjgFhg'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"
+  ],
+  "generated_at": "2026-07-02T06:27:07.097244+00:00"
 }

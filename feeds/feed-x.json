@@ -27,7 +27,7 @@
           "id": "2072321276094673083",
           "text": "We @togethercompute believe intelligence should be abundant, not expensive. \n\nToday we announced our Series C funding of $800m @ $8.3B valuation, to continue to build the world's most efficient platform for generative AI. \n\nThanks @nikogallogly for telling our story in @nytimes! \n\nhttps://t.co/LGQ5t6rzya",
           "created_at": "2026-07-01T14:07:48+00:00",
-          "like_count": 425,
+          "like_count": 427,
           "retweet_count": 82,
           "reply_count": 59,
           "url": "https://x.com/vipulved/status/2072321276094673083"
@@ -36,7 +36,7 @@
           "id": "2071972449277898924",
           "text": "Good morning @aiDotEngineer !\nAre we talking loops today?",
           "created_at": "2026-06-30T15:01:41+00:00",
-          "like_count": 507,
+          "like_count": 508,
           "retweet_count": 10,
           "reply_count": 55,
           "url": "https://x.com/steipete/status/2071972449277898924"
@@ -132,7 +132,7 @@
           "id": "2071988881717871065",
           "text": "Claude Desktop is now available on Linux (Ubuntu and Debian) in beta.\n\nAlongside the browser and terminal, you now get a first-class desktop experience with Claude Code, Claude Cowork, and chat on all paid plans. https://t.co/m0K9t198t4",
           "created_at": "2026-06-30T16:06:59+00:00",
-          "like_count": 8178,
+          "like_count": 8179,
           "retweet_count": 730,
           "reply_count": 402,
           "url": "https://x.com/ClaudeDevs/status/2071988881717871065"
@@ -141,7 +141,7 @@
           "id": "2072000214634742243",
           "text": "You asked, we listened. Claude Desktop on Linux is here!\n\nDownload link: https://t.co/gjgHZvbKyi",
           "created_at": "2026-06-30T16:52:01+00:00",
-          "like_count": 4250,
+          "like_count": 4251,
           "retweet_count": 249,
           "reply_count": 341,
           "url": "https://x.com/bcherny/status/2072000214634742243"
@@ -202,16 +202,16 @@
           "id": "2072402636813607381",
           "text": "Fable 5 is back. https://t.co/9RTGUCcPHy",
           "created_at": "2026-07-01T19:31:06+00:00",
-          "like_count": 71487,
-          "retweet_count": 9393,
-          "reply_count": 3321,
+          "like_count": 71705,
+          "retweet_count": 9422,
+          "reply_count": 3331,
           "url": "https://x.com/claudeai/status/2072402636813607381"
         },
         {
           "id": "2072404717490360727",
           "text": "Welcome back to the world Fable!!",
           "created_at": "2026-07-01T19:39:22+00:00",
-          "like_count": 504,
+          "like_count": 506,
           "retweet_count": 9,
           "reply_count": 24,
           "url": "https://x.com/alexalbert__/status/2072404717490360727"
@@ -237,7 +237,7 @@
           "id": "2072390507628540213",
           "text": "For those tracking the America closed source vs China open weight model debate: \n\nIn an initial pilot on modernizing an application from PHP to Next.js, Opus 4.8 with 8090’s Software Factory was simultaneously 1.4× cheaper and 1.5× faster than Opus 4.8 alone. \n\nPairing our Software Factory with the cheaper GLM 5.2 model cut costs 16.4×, though it ran 3× slower than Opus 4.8 alone. \n\nResults are directional (n=1 per arm), and next steps are to rerun with proper controls and 10–15 buyer-relevant legacy modernization tasks developed with our Sales and GTM teams. \n\nMore to come but the important question it raises is why any American public company with shareholders burning money on closed source models when the open weight ones are so much cheaper? \n\nWe will rerun this on American open source models next (aka Nvidia)…",
           "created_at": "2026-07-01T18:42:54+00:00",
-          "like_count": 1244,
+          "like_count": 1249,
           "retweet_count": 89,
           "reply_count": 133,
           "url": "https://x.com/chamath/status/2072390507628540213"
@@ -246,7 +246,7 @@
           "id": "2072312348539293836",
           "text": "Excited to partner with the best 🏎️",
           "created_at": "2026-07-01T13:32:20+00:00",
-          "like_count": 1220,
+          "like_count": 1222,
           "retweet_count": 26,
           "reply_count": 83,
           "url": "https://x.com/rauchg/status/2072312348539293836"
@@ -255,7 +255,7 @@
           "id": "2072393515657568553",
           "text": "https://t.co/pYz1Gn97jD is the new npm and the new github.\n\nOver time, you need fewer 'templates' and large piles of code. I haven't cloned a repo in a very long time.\n\nYou need the instructions and best practices on how to build the best things.",
           "created_at": "2026-07-01T18:54:51+00:00",
-          "like_count": 719,
+          "like_count": 724,
           "retweet_count": 35,
           "reply_count": 48,
           "url": "https://x.com/rauchg/status/2072393515657568553"
@@ -264,7 +264,7 @@
           "id": "2072463293654942090",
           "text": "WordPress on @vercel Fluid with Active CPU from a single 𝙳𝚘𝚌𝚔𝚎𝚛𝚏𝚒𝚕𝚎.𝚟𝚎𝚛𝚌𝚎𝚕. MySQL on @planetscale. 30s deployments incl. \"𝚍𝚘𝚌𝚔𝚎𝚛 𝚋𝚞𝚒𝚕𝚍\" in the cloud. Just one command: 𝚗̶𝚘̶𝚠̶ 𝚟𝚎𝚛𝚌𝚎𝚕. https://t.co/q1X5ZOFVIx",
           "created_at": "2026-07-01T23:32:08+00:00",
-          "like_count": 366,
+          "like_count": 369,
           "retweet_count": 21,
           "reply_count": 42,
           "url": "https://x.com/rauchg/status/2072463293654942090"
@@ -281,7 +281,7 @@
           "id": "2071972062202343590",
           "text": "We're coming out of stealth.\n\nWe've built our first racks after a successful A0 tapeout, $1B+ in customer contracts, and $800m raised.\n\nEarly customer tests show us achieving SOTA throughput, latency, and power efficiency on inference workloads.\n\nOur first racks ship this summer. https://t.co/FLccrkLTza",
           "created_at": "2026-06-30T15:00:09+00:00",
-          "like_count": 9134,
+          "like_count": 9137,
           "retweet_count": 887,
           "reply_count": 586,
           "url": "https://x.com/Etched/status/2071972062202343590"
@@ -299,7 +299,7 @@
           "id": "2072385092824260748",
           "text": "Now that building is easy, we’ve been increasingly focused on getting entrepreneurs to market, helping them reach their first customer and first dollar.\n\nWhop is one of the best places on the internet to monetize your creations — and now you can sell your Replit apps on there.",
           "created_at": "2026-07-01T18:21:23+00:00",
-          "like_count": 493,
+          "like_count": 494,
           "retweet_count": 31,
           "reply_count": 27,
           "url": "https://x.com/amasad/status/2072385092824260748"
@@ -308,7 +308,7 @@
           "id": "2072334668804796923",
           "text": "Replit 🤝 Whop\n\nBuild your app on Replit. Earn on Whop. https://t.co/uOCoB9QIPG",
           "created_at": "2026-07-01T15:01:01+00:00",
-          "like_count": 348,
+          "like_count": 350,
           "retweet_count": 38,
           "reply_count": 64,
           "url": "https://x.com/whop/status/2072334668804796923"
@@ -343,5 +343,5 @@
     }
   ],
   "errors": null,
-  "generated_at": "2026-07-02T06:55:44.093692+00:00"
+  "generated_at": "2026-07-02T07:02:13.392839+00:00"
 }

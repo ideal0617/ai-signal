@@ -107,9 +107,13 @@ For weekly, also ask which day.
 ### Step 3: Language
 
 Ask: "你希望用什么语言？"
-- 中文（翻译英文内容）
-- English
-- 双语（中英对照，逐段交替）
+- 中文（翻译英文内容）→ save as `"language": "zh"`
+- English → save as `"language": "en"`
+- 双语（中英对照，逐段交替）→ save as `"language": "bilingual"`
+
+Do not save display labels such as `"中文"` or `"English"` if you can avoid it.
+If they already exist, `prepare_digest.py` will normalize them, but canonical
+config values are `zh`, `en`, and `bilingual`.
 
 ### Step 4: Granularity
 
@@ -284,16 +288,32 @@ Read `~/.ai-signal/config.json` for user preferences.
 cd ${SKILL_DIR}/scripts && python prepare_digest.py 2>/dev/null
 ```
 
-The script outputs a single JSON blob with everything needed:
+The script writes the full content to files and prints a **small JSON manifest**
+to stdout (a few KB — safe to read in any agent). The manifest contains:
+- `payload_file` — absolute path to `payload.json` (full content minus transcripts)
 - `config` — user's language, granularity, domains, delivery preferences
-- `podcasts` — podcast episodes with transcripts
-- `x` — Twitter accounts with recent tweets
-- `papers` — arXiv papers with titles and abstracts
-- `prompts` — remix instructions
+- `output_contract` — mandatory generation contract, especially language rules
 - `stats` — content counts
-- `mode` — should be `json_first`
-- `central_summaries` — optional and normally null; ignore unless present
+- `podcasts` — episode list with `transcript_file` paths and sizes
+- `x_accounts` — accounts that have new tweets
+- `seen_filter` — items already delivered before are filtered out automatically
 - `errors` — non-fatal issues (IGNORE these)
+
+Then read the actual content **from files, not stdout**:
+1. Read `payload_file` (payload.json) with your file-reading tool — it has all
+   tweets, paper titles/abstracts, podcast metadata, and prompts.
+2. For each podcast episode you cover, read its `transcript_file`. Transcripts
+   can be 100K+ characters — read in chunks (offset/limit) if your tool needs it,
+   and for long transcripts it is fine to read enough to extract the core
+   arguments rather than every line.
+
+Per-user dedup happens in this script via `~/.ai-signal/seen.json`: each run
+only returns items not delivered before. If the user asks to regenerate today's
+digest ("重新生成" / "再看一遍今天的"), run:
+
+```bash
+cd ${SKILL_DIR}/scripts && python prepare_digest.py --include-seen 2>/dev/null
+```
 
 If the script fails entirely (no JSON output), tell the user to check internet.
 
@@ -310,12 +330,19 @@ Only include content matching the user's `config.domains`:
 
 ### Step 5: Remix content
 
-**Your ONLY job is to remix content from the JSON.** Do NOT fetch anything from
-the web, visit URLs, or call APIs. Everything is in the JSON.
+**Your ONLY job is to remix content from the payload files.** Do NOT fetch
+anything from the web, visit URLs, or call APIs. Everything is in payload.json
+and the transcript files.
+
+Before writing the digest, read `output_contract` and obey it as the highest
+priority instruction in this payload. If `output_contract.language.must_translate`
+is true, translate all user-facing analysis and summaries into the requested
+language. The original tweet text, titles, product names, company names, model
+names, technical terms, and URLs may remain in English when appropriate.
 
 Use the raw JSON fields as the source of truth:
 - X/Twitter: use each tweet's original `text` and `url`.
-- Podcasts: use each episode's `transcript` when available; otherwise use
+- Podcasts: read each episode's `transcript_file` when present; otherwise use
   `description`.
 - Papers: use each paper's `title`, `abstract`, `abs_url`, and `pdf_url`.
 - If `central_summaries` exists, treat it only as optional reference material,
@@ -357,10 +384,16 @@ Include `abs_url` for each paper. Group by theme when papers overlap.
 
 Read `config.language`:
 - **"en":** Entire digest in English.
-- **"zh":** Entire digest in Chinese. Translate all English content.
+- **"zh":** Entire digest in Simplified Chinese. Translate all English content
+  that you write for the user. Keep original tweet text and links under an
+  "原文" label, but do not leave analysis, summaries, section headings, or
+  explanations in English.
 - **"bilingual":** Interleave English and Chinese paragraph by paragraph.
   For each section: English version, then Chinese translation directly below.
   Do NOT output all English first then all Chinese.
+
+If the user selected Chinese and your draft is mostly English, rewrite it before
+delivery. That is a failed digest, not a valid English fallback.
 
 ### Step 7: Deliver
 
@@ -393,7 +426,9 @@ If a user asks to add or remove sources: "信息源由中央统一维护，自�
 - "时区改成东部时间" → update `timezone`; if using OpenClaw, update the Agent cron job
 
 ### Language Changes
-- "切换成中文 / 英文 / 双语" → update `language`
+- "切换成中文" → update `language` to `"zh"`
+- "切换成英文" → update `language` to `"en"`
+- "切换成双语" → update `language` to `"bilingual"`
 
 ### Granularity Changes
 - "更简短一些" → change `granularity` to `highlights`

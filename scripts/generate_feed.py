@@ -3,6 +3,10 @@
 Runs on GitHub Actions daily. Outputs raw content (no LLM summarization).
 Subscribers pull the feed JSON and use their own LLM to generate digests.
 
+Feeds are stateless rolling-window snapshots: every run publishes ALL content
+inside each source's lookback window, so extra manual runs never eat content.
+Per-user "already seen" dedup happens client-side in prepare_digest.py.
+
 Usage:
     python scripts/generate_feed.py [--twitter-only | --podcasts-only | --arxiv-only]
 
@@ -29,11 +33,10 @@ import httpx
 SCRIPT_DIR = Path(__file__).parent
 ROOT_DIR = SCRIPT_DIR.parent
 FEEDS_DIR = ROOT_DIR / "feeds"
-STATE_PATH = FEEDS_DIR / "state-feed.json"
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
 MIN_TRANSCRIPT_CHARS = 600
-MAX_TRANSCRIPT_CHARS = 120_000
+MAX_TRANSCRIPT_CHARS = int(os.environ.get("MAX_TRANSCRIPT_CHARS", "500000"))
 
 
 def configure_stdio():
@@ -54,21 +57,6 @@ def clean_data(value):
     if isinstance(value, dict):
         return {clean_data(k): clean_data(v) for k, v in value.items()}
     return value
-
-
-# ── State management ──────────────────────────────────────────────────────────
-
-def load_state():
-    if STATE_PATH.exists():
-        return json.loads(STATE_PATH.read_text("utf-8"))
-    return {"seen_tweets": {}, "seen_episodes": {}, "seen_papers": {}}
-
-
-def save_state(state):
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
-    for key in ("seen_tweets", "seen_episodes", "seen_papers"):
-        state[key] = {k: v for k, v in state.get(key, {}).items() if v > cutoff}
-    STATE_PATH.write_text(json.dumps(state, indent=2), encoding="utf-8")
 
 
 def load_feed(filename):
@@ -316,10 +304,10 @@ def detect_proxy():
     return ""
 
 
-async def fetch_twitter(sources, state):
+async def fetch_twitter(sources):
     twitter_cfg = sources.get("twitter", {})
     accounts = twitter_cfg.get("accounts", [])
-    lookback = twitter_cfg.get("lookback_hours", 24)
+    lookback = twitter_cfg.get("lookback_hours", 48)
     max_per_user = twitter_cfg.get("max_tweets_per_user", 5)
 
     cookies = os.environ.get("TWITTER_COOKIES", "")
@@ -360,15 +348,16 @@ async def fetch_twitter(sources, state):
             continue
 
         tweets = []
+        seen_ids = set()
         for t in raw:
             if t.date and t.date.replace(tzinfo=timezone.utc) < since:
                 continue
             if t.rawContent.startswith("RT @"):
                 continue
             tid = str(t.id)
-            if tid in state["seen_tweets"]:
+            if tid in seen_ids:
                 continue
-            state["seen_tweets"][tid] = datetime.now(timezone.utc).isoformat()
+            seen_ids.add(tid)
             tweets.append({
                 "id": tid,
                 "text": t.rawContent,
@@ -646,7 +635,7 @@ def get_podcast_transcript(ep):
     )
 
 
-def fetch_channel(channel, lookback_hours, state):
+def fetch_channel(channel, lookback_hours, transcript_cache):
     name = channel["name"]
     rss_url = channel["rss_url"]
     since = datetime.now(timezone.utc) - timedelta(hours=lookback_hours)
@@ -664,22 +653,28 @@ def fetch_channel(channel, lookback_hours, state):
     for ep in episodes:
         if ep["pub_date"] and ep["pub_date"] < since:
             continue
-        if ep["guid"] in state["seen_episodes"]:
+
+        cached = transcript_cache.get(ep["guid"]) or transcript_cache.get(ep["link"])
+        if cached is not None:
+            log(f"  ♻️ {ep['title'][:60]} (transcript reused)")
+            entry = dict(cached)
+            entry["guid"] = ep["guid"]
+            results.append(entry)
             continue
-        state["seen_episodes"][ep["guid"]] = datetime.now(timezone.utc).isoformat()
 
         log(f"  🆕 {ep['title'][:60]}...")
 
-        transcript_result = get_podcast_transcript(ep)
-        transcript = transcript_result["text"]
+        fetched = get_podcast_transcript(ep)
+        transcript = fetched["text"]
         if transcript:
-            log(f"    ✅ transcript ({len(transcript)} chars, {transcript_result['source']})")
+            log(f"    ✅ transcript ({len(transcript)} chars, {fetched['source']})")
         else:
-            log(f"    ⏭️ transcript unavailable: {transcript_result['error']}")
+            log(f"    ⏭️ transcript unavailable: {fetched['error']}")
 
         results.append({
             "channel": name,
             "domain": channel.get("domain", "ai"),
+            "guid": ep["guid"],
             "title": ep["title"],
             "pub_date": ep["pub_date"].isoformat() if ep["pub_date"] else "",
             "link": ep["link"],
@@ -688,27 +683,39 @@ def fetch_channel(channel, lookback_hours, state):
             "description": ep["description"],
             "transcript": transcript,
             "transcript_available": bool(transcript),
-            "transcript_source": transcript_result["source"] if transcript else None,
-            "transcript_url": transcript_result.get("url") if transcript else None,
-            "transcript_video_id": transcript_result["video_id"],
-            "transcript_error": transcript_result["error"] if not transcript else None,
+            "transcript_source": fetched["source"] if transcript else None,
+            "transcript_url": fetched.get("url") if transcript else None,
+            "transcript_video_id": fetched["video_id"],
+            "transcript_error": fetched["error"] if not transcript else None,
         })
 
     if not results:
-        log(f"  ⏭️ nothing new")
+        log(f"  ⏭️ nothing in window")
     return results, None
 
 
-def fetch_podcasts(sources, state):
+def fetch_podcasts(sources):
     podcast_cfg = sources.get("podcasts", {})
     channels = podcast_cfg.get("channels", [])
-    lookback = podcast_cfg.get("lookback_hours", 168)
+    lookback = podcast_cfg.get("lookback_hours", 72)
+
+    # Reuse transcripts already fetched by a previous run: episodes still inside
+    # the window keep their entry instead of being re-scraped. Entries without a
+    # transcript are retried each run.
+    transcript_cache = {}
+    existing = load_feed("feed-podcasts.json") or {}
+    for entry in existing.get("podcasts", []):
+        if not entry.get("transcript"):
+            continue
+        for key in (entry.get("guid"), entry.get("link")):
+            if key:
+                transcript_cache[key] = entry
 
     all_episodes = []
     errors = []
 
     with ThreadPoolExecutor(max_workers=4) as pool:
-        futures = {pool.submit(fetch_channel, ch, lookback, state): ch for ch in channels}
+        futures = {pool.submit(fetch_channel, ch, lookback, transcript_cache): ch for ch in channels}
         for fut in as_completed(futures):
             try:
                 eps, err = fut.result()
@@ -724,7 +731,7 @@ def fetch_podcasts(sources, state):
 
 # ── arXiv fetching ───────────────────────────────────────────────────────────
 
-def fetch_arxiv(sources, state):
+def fetch_arxiv(sources):
     arxiv_cfg = sources.get("arxiv", {})
     categories = arxiv_cfg.get("categories", [])
     max_papers = arxiv_cfg.get("max_papers", 30)
@@ -759,15 +766,16 @@ def fetch_arxiv(sources, state):
         return {"papers": [], "errors": [str(e)]}
 
     since = datetime.now(timezone.utc) - timedelta(hours=lookback)
-    state.setdefault("seen_papers", {})
     papers = []
+    seen_ids = set()
 
     for entry in root.findall("atom:entry", ns):
         id_url = entry.findtext("atom:id", "", ns)
         arxiv_id = id_url.split("/abs/")[-1] if "/abs/" in id_url else id_url
 
-        if arxiv_id in state["seen_papers"]:
+        if arxiv_id in seen_ids:
             continue
+        seen_ids.add(arxiv_id)
 
         pub_str = entry.findtext("atom:published", "", ns)
         pub_date = None
@@ -803,7 +811,6 @@ def fetch_arxiv(sources, state):
 
         comment = (entry.findtext("arxiv:comment", "", ns) or "").strip()
 
-        state["seen_papers"][arxiv_id] = datetime.now(timezone.utc).isoformat()
         papers.append({
             "arxiv_id": arxiv_id,
             "title": title,
@@ -817,6 +824,7 @@ def fetch_arxiv(sources, state):
             "comment": comment,
         })
 
+    papers.sort(key=lambda p: p.get("published") or "", reverse=True)
     papers = papers[:max_papers]
     log(f"  ✅ {len(papers)} papers")
     return {"papers": papers, "errors": None}
@@ -833,7 +841,6 @@ async def main():
     args = parser.parse_args()
 
     sources = load_sources()
-    state = load_state()
     now = datetime.now(timezone.utc)
     FEEDS_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -841,7 +848,7 @@ async def main():
 
     if run_all or args.twitter_only:
         log("\n━━━ Twitter/X ━━━")
-        twitter_feed = await fetch_twitter(sources, state)
+        twitter_feed = await fetch_twitter(sources)
         twitter_feed["generated_at"] = now.isoformat()
         write_json(FEEDS_DIR / "feed-x.json", twitter_feed)
         active = sum(1 for a in twitter_feed["x"] if a["tweets"])
@@ -849,24 +856,23 @@ async def main():
 
     if run_all or args.podcasts_only:
         log("\n━━━ Podcasts ━━━")
-        podcast_feed = fetch_podcasts(sources, state)
+        podcast_feed = fetch_podcasts(sources)
         podcast_feed["generated_at"] = now.isoformat()
         write_json(FEEDS_DIR / "feed-podcasts.json", podcast_feed)
         with_transcript = sum(1 for e in podcast_feed["podcasts"] if e.get("transcript"))
         log(f"✅ feed-podcasts.json ({len(podcast_feed['podcasts'])} episodes, {with_transcript} with transcript)")
 
     if run_all or args.arxiv_only:
-        arxiv_feed = fetch_arxiv(sources, state)
+        arxiv_feed = fetch_arxiv(sources)
         arxiv_feed["generated_at"] = now.isoformat()
         if not arxiv_feed["papers"]:
             existing_arxiv = load_feed("feed-arxiv.json")
             if existing_arxiv and existing_arxiv.get("papers"):
-                log("ℹ️  No new arXiv papers; keeping existing feed-arxiv.json")
+                log("ℹ️  arXiv fetch returned nothing; keeping existing feed-arxiv.json")
                 arxiv_feed = existing_arxiv
         write_json(FEEDS_DIR / "feed-arxiv.json", arxiv_feed)
         log(f"✅ feed-arxiv.json ({len(arxiv_feed['papers'])} papers)")
 
-    save_state(state)
     log("\n🎉 Feed generation complete")
 
 

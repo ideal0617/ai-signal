@@ -293,11 +293,13 @@ to stdout (a few KB — safe to read in any agent). The manifest contains:
 - `payload_file` — absolute path to `payload.json` (full content minus transcripts)
 - `config` — user's language, granularity, domains, delivery preferences
 - `output_contract` — mandatory generation contract, especially language rules
+- `feed_sources` — whether each feed came from GitHub raw (`remote`) or local cache
 - `stats` — content counts
 - `podcasts` — episode list with `transcript_file` paths and sizes
 - `x_accounts` — accounts that have new tweets
 - `seen_filter` — items already delivered before are filtered out automatically
 - `delivery_mark_file` — item IDs to mark after the digest is successfully delivered
+- `warnings` — stale feed or local cache warnings; show these to the user
 - `errors` — non-fatal issues (IGNORE these)
 
 Then read the actual content **from files, not stdout**:
@@ -307,6 +309,11 @@ Then read the actual content **from files, not stdout**:
    can be 100K+ characters — read in chunks (offset/limit) if your tool needs it,
    and for long transcripts it is fine to read enough to extract the core
    arguments rather than every line.
+
+If `feed_sources` shows any feed with `source: "local_cache"` or `is_stale: true`,
+or if `warnings` mentions stale/local cache data, tell the user before the digest
+that the affected feed may not be the latest. Do not present local cache data as
+today's fresh feed.
 
 Per-user dedup reads `~/.ai-signal/seen.json`, but `prepare_digest.py` does **not**
 mark items as seen by default. Only mark after the digest is actually shown or

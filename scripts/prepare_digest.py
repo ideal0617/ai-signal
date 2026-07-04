@@ -51,6 +51,7 @@ SEEN_PATH = USER_DIR / "seen.json"
 DEFAULT_PAYLOAD_DIR = USER_DIR / "payload"
 DEFAULT_DELIVERY_MARK = "delivery-mark.json"
 SEEN_RETENTION_DAYS = 14
+FEED_STALE_AFTER_HOURS = 30
 
 
 def configure_stdio():
@@ -295,12 +296,27 @@ def load_local_text(path_text):
         return None
 
 
+def feed_meta(filename, url, source, feed, reason=None):
+    return {
+        "source": source,
+        "filename": filename,
+        "url": url,
+        "generated_at": (feed or {}).get("generated_at"),
+        "reason": reason,
+    }
+
+
 def fetch_feed(url, filename, content_key=None):
     remote = fetch_json(url)
     local = load_local_json(filename)
     if remote and (not content_key or remote.get(content_key)):
-        return remote
-    return local or remote
+        return remote, feed_meta(filename, url, "remote", remote)
+    if local:
+        reason = "remote_unavailable"
+        if remote and content_key and not remote.get(content_key):
+            reason = f"remote_missing_{content_key}"
+        return local, feed_meta(filename, url, "local_cache", local, reason)
+    return remote, feed_meta(filename, url, "unavailable", remote, "remote_unavailable_no_local_cache")
 
 
 def choose_summary_profile(config):
@@ -335,7 +351,10 @@ def parse_iso_datetime(value):
     if not value:
         return None
     try:
-        return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed
     except ValueError:
         return None
 
@@ -354,6 +373,40 @@ def summaries_are_stale(feed_summaries, *feeds):
     if not summary_dt:
         return True
     return summary_dt < raw_dt
+
+
+def feed_age_hours(feed):
+    generated = parse_iso_datetime((feed or {}).get("generated_at"))
+    if not generated:
+        return None
+    return (datetime.now(timezone.utc) - generated).total_seconds() / 3600
+
+
+def annotate_feed_sources(feed_sources, feeds):
+    warnings = []
+    annotated = {}
+    for key, meta in feed_sources.items():
+        feed = feeds.get(key)
+        item = dict(meta)
+        age = feed_age_hours(feed)
+        if age is not None:
+            item["age_hours"] = round(age, 2)
+            item["is_stale"] = age > FEED_STALE_AFTER_HOURS
+        else:
+            item["age_hours"] = None
+            item["is_stale"] = bool(feed)
+        if item["source"] == "local_cache":
+            warnings.append(
+                f"{key} feed used local cache because {item.get('reason')}; data may not be latest"
+            )
+        elif item["source"] == "unavailable":
+            warnings.append(f"{key} feed unavailable; no remote or local cache data")
+        if item["is_stale"]:
+            warnings.append(
+                f"{key} feed generated_at is older than {FEED_STALE_AFTER_HOURS} hours"
+            )
+        annotated[key] = item
+    return annotated, warnings
 
 
 def filter_summary_items(items, domains):
@@ -444,6 +497,7 @@ def main():
     parser.add_argument("--no-mark-seen", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
     errors = []
+    warnings = []
 
     # 1. User config
     config = {"language": "en", "granularity": "summary", "delivery": {"method": "stdout"}}
@@ -454,16 +508,37 @@ def main():
             errors.append(f"Config read error: {e}")
 
     # 2. Fetch feeds
-    feed_x = fetch_feed(FEED_X_URL, "feed-x.json", "x")
-    feed_podcasts = fetch_feed(FEED_PODCASTS_URL, "feed-podcasts.json", "podcasts")
-    feed_arxiv = fetch_feed(FEED_ARXIV_URL, "feed-arxiv.json", "papers")
+    feed_x, x_source = fetch_feed(FEED_X_URL, "feed-x.json", "x")
+    feed_podcasts, podcast_source = fetch_feed(FEED_PODCASTS_URL, "feed-podcasts.json", "podcasts")
+    feed_arxiv, arxiv_source = fetch_feed(FEED_ARXIV_URL, "feed-arxiv.json", "papers")
     include_central_summaries = wants_central_summaries(config)
-    feed_summaries = fetch_feed(FEED_SUMMARIES_URL, "feed-summaries.json", "profiles") if include_central_summaries else None
+    if include_central_summaries:
+        feed_summaries, summaries_source = fetch_feed(FEED_SUMMARIES_URL, "feed-summaries.json", "profiles")
+    else:
+        feed_summaries = None
+        summaries_source = feed_meta("feed-summaries.json", FEED_SUMMARIES_URL, "disabled", None)
+    feed_sources, source_warnings = annotate_feed_sources(
+        {
+            "x": x_source,
+            "podcasts": podcast_source,
+            "arxiv": arxiv_source,
+            "summaries": summaries_source,
+        },
+        {
+            "x": feed_x,
+            "podcasts": feed_podcasts,
+            "arxiv": feed_arxiv,
+            "summaries": feed_summaries,
+        },
+    )
+    warnings.extend(source_warnings)
     if feed_summaries and summaries_are_stale(feed_summaries, feed_x, feed_podcasts, feed_arxiv):
-        errors.append(
+        warnings.append(
             "Central summaries are older than raw feeds; ignoring feed-summaries.json for this run"
         )
         feed_summaries = None
+        feed_sources["summaries"]["ignored"] = True
+        feed_sources["summaries"]["ignore_reason"] = "older_than_raw_feeds"
     if not feed_x:
         errors.append("Could not fetch tweet feed")
     if not feed_podcasts:
@@ -574,12 +649,14 @@ def main():
         "generated_at": (feed_x or {}).get("generated_at") or (feed_podcasts or {}).get("generated_at"),
         "config": config_out,
         "output_contract": output_contract,
+        "feed_sources": feed_sources,
         "central_summaries": central_summaries,
         "podcasts": episodes,
         "x": x_accounts,
         "papers": papers,
         "stats": stats,
         "prompts": prompts,
+        "warnings": warnings if warnings else None,
         "errors": errors if errors else None,
     }
 
@@ -618,6 +695,7 @@ def main():
         "delivery_mark_file": str(mark_path) if mark_path else None,
         "config": config_out,
         "output_contract": output_contract,
+        "feed_sources": feed_sources,
         "stats": stats,
         "podcasts": [
             {
@@ -637,6 +715,7 @@ def main():
         "papers_count": len(papers),
         "seen_filter": "off (--include-seen)" if args.include_seen else "on",
         "seen_update": seen_update,
+        "warnings": warnings if warnings else None,
         "errors": errors if errors else None,
     }
     sys.stdout.write(json.dumps(clean_data(manifest), ensure_ascii=True, indent=2))

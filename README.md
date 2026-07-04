@@ -127,6 +127,7 @@ cd ai-signal/scripts && pip install -r ../requirements.txt
   └── prepare_digest.py → 从本 repo 拉 feed
       → 读取 ~/.ai-signal/seen.json，过滤你已经看过的内容
       → 如果中央摘要缓存比 raw feed 旧，自动忽略旧摘要
+      → manifest 标明每个 feed 来自 GitHub raw 还是本地缓存，并提示是否过期
       → 完整内容写到 ~/.ai-signal/payload/（payload.json + 每集单独的 transcript 文件）
       → stdout 只输出一个几 KB 的 manifest，任何 Agent 都能直接读
       → 你的 AI 按需读取文件，按你的偏好生成摘要

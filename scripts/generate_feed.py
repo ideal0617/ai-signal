@@ -568,6 +568,8 @@ def parse_rss(xml_text):
                 if link_el.get("rel") == "alternate":
                     link = link_el.get("href", "")
                     break
+            if not link and vid_id:
+                link = f"https://www.youtube.com/watch?v={vid_id}"
 
             desc_el = entry.find(f"{{{media}}}group/{{{media}}}description")
             desc = desc_el.text.strip() if desc_el is not None and desc_el.text else ""

@@ -101,9 +101,31 @@ def normalize_language(value):
     return aliases.get(raw, "en")
 
 
+def normalize_granularity(value):
+    raw = str(value or "summary").strip().lower()
+    aliases = {
+        "highlights": "highlights",
+        "highlight": "highlights",
+        "short": "highlights",
+        "brief": "highlights",
+        "精华": "highlights",
+        "简短": "highlights",
+        "summary": "summary",
+        "standard": "summary",
+        "medium": "summary",
+        "标准": "summary",
+        "full": "full",
+        "deep": "full",
+        "detailed": "full",
+        "完整": "full",
+        "详细": "full",
+    }
+    return aliases.get(raw, "summary")
+
+
 def build_output_contract(config):
     language = normalize_language(config.get("language", "en"))
-    granularity = config.get("granularity", "summary")
+    granularity = normalize_granularity(config.get("granularity", "summary"))
 
     if language == "zh":
         language_policy = {
@@ -353,12 +375,12 @@ def choose_summary_profile(config):
         return explicit
 
     language = normalize_language(config.get("language", "en"))
-    granularity = config.get("granularity", "summary")
+    granularity = normalize_granularity(config.get("granularity", "summary"))
 
     if language == "zh":
-        if granularity in ("highlights", "short"):
+        if granularity == "highlights":
             return "zh_short"
-        if granularity in ("full", "deep"):
+        if granularity == "full":
             return "zh_deep"
         return "zh_standard"
     if language == "bilingual":
@@ -662,7 +684,8 @@ def main():
     config_out = {
         "language": language,
         "language_raw": config.get("language", "en"),
-        "granularity": config.get("granularity", "summary"),
+        "granularity": normalize_granularity(config.get("granularity", "summary")),
+        "granularity_raw": config.get("granularity", "summary"),
         "include_central_summaries": include_central_summaries,
         "summary_profile": summary_profile,
         "available_summary_profiles": available_summary_profiles,

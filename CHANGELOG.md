@@ -6,6 +6,8 @@
 
 ### 修复
 
+- `granularity` 配置值归一化：此前只有 `language` 会把"中文"这类显示标签归一为规范值，`granularity` 存了"精华/标准/完整"会原样透传——"精华"会错误落入标准档摘要。现在与 language 同样处理（精华→highlights、标准→summary、完整→full），manifest 新增 `granularity_raw` 保留原始值。
+- YouTube 频道的集数若缺 `rel="alternate"` 链接，改用 `yt:videoId` 拼出 watch URL 兜底。此前该集 `link` 为空串，按"无 URL 不收录"规则会被日报静默丢弃（实测 7/5 No Priors 核能这期就这样丢了）。
 - `skill.md` 更名为 `SKILL.md`，符合 Agent Skills 规范的大写文件名。
   之所以这样改：Linux 环境（多数云端 Agent）文件名大小写敏感，小写文件名可能导致 Agent 找不到 skill 定义、只能照 README 即兴引导——实测 WorkBuddy 安装时漏问了推送时间。
 - Onboarding 加硬规则：Step 2-6 逐条问、不许跳过；即使 Agent 自己不能定时，也必须问推送时间并存入配置。

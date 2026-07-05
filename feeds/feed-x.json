@@ -7,12 +7,21 @@
       "tier": "analyst",
       "tweets": [
         {
+          "id": "2073499112876761166",
+          "text": "@petergostev incredible, ty for putting this together, i didn't appreciate that models would be able to create these awesome, rich, playable worlds that fuse knowledge and code. when the bear catches the salmon @ 43m :O lol!",
+          "created_at": "2026-07-04T20:08:06+00:00",
+          "like_count": 187,
+          "retweet_count": 5,
+          "reply_count": 11,
+          "url": "https://x.com/karpathy/status/2073499112876761166"
+        },
+        {
           "id": "2073505440479293773",
           "text": "Agree, it's beautiful, top tier fablemaxxing! :)\nI think with every new model tier there is something new that qualitatively leaps and surprises, for Fable so far these threejs envs seem to be up there. The bear thing is such a weird little detail to have there, and the fish actually struggles in its mouth. How does an LLM even know all these things from just internet, and then have the ability to convert that understanding into xyz coordinates, meshes, transforms, animations, effects, interactivity and mini stories? Amazing to think about what +1, +2, +3 model tiers might be able to create.",
           "created_at": "2026-07-04T20:33:15+00:00",
-          "like_count": 25,
-          "retweet_count": 1,
-          "reply_count": 2,
+          "like_count": 78,
+          "retweet_count": 6,
+          "reply_count": 4,
           "url": "https://x.com/karpathy/status/2073505440479293773"
         }
       ]
@@ -24,13 +33,49 @@
       "tier": "analyst",
       "tweets": [
         {
-          "id": "2072907164843397614",
-          "text": "this is what new media looks like now\n@swyx @aiDotEngineer @greptile https://t.co/fR8nkqKCqG",
-          "created_at": "2026-07-03T04:55:55+00:00",
-          "like_count": 34,
-          "retweet_count": 1,
-          "reply_count": 5,
-          "url": "https://x.com/iris_y_meng/status/2072907164843397614"
+          "id": "2073220591684096087",
+          "text": "i often think about the irony of how \"tools for thought\" people spent like a decade making cool pretty demos with canvases \n\nand then got completely mogged by low contrast poorly designed CLIs just winning because they do commodity thinking for you",
+          "created_at": "2026-07-04T01:41:22+00:00",
+          "like_count": 241,
+          "retweet_count": 5,
+          "reply_count": 40,
+          "url": "https://x.com/swyx/status/2073220591684096087"
+        },
+        {
+          "id": "2073198874773344710",
+          "text": "big highlight of aie is always catching up with @microsoft folks like @digitarald who deeply care about the responsibility of being the predominant platform for code and always have thoughtful talks and ideas around how they are supporting hundreds of millions of users (from the smallest SF AI natives to the largest global F500s) with the kind of care and maturity that doesn’t often get celebrated on twitter, but MSFT wouldn’t remain a 3T megaplatform today without the kind of passionate devtools people that I saw speak at AIE this week. always awed by the bigcloud folks who embrace all the complexities of being the incumbent AND innovator at the same time.",
+          "created_at": "2026-07-04T00:15:04+00:00",
+          "like_count": 30,
+          "retweet_count": 2,
+          "reply_count": 9,
+          "url": "https://x.com/swyx/status/2073198874773344710"
+        },
+        {
+          "id": "2073282565629436090",
+          "text": "@altryne @aiDotEngineer we saved the aie signs!!! https://t.co/JahAQIS1XE",
+          "created_at": "2026-07-04T05:47:38+00:00",
+          "like_count": 28,
+          "retweet_count": 2,
+          "reply_count": 4,
+          "url": "https://x.com/swyx/status/2073282565629436090"
+        },
+        {
+          "id": "2073142442069565654",
+          "text": "At @aiDotEngineer, I asked @digitarald from the @code team how they use AI to keep up with the increasing volume of open source contributions. https://t.co/tUsiUEJkha",
+          "created_at": "2026-07-03T20:30:49+00:00",
+          "like_count": 21,
+          "retweet_count": 4,
+          "reply_count": 4,
+          "url": "https://x.com/jeffbcross/status/2073142442069565654"
+        },
+        {
+          "id": "2073294102612107659",
+          "text": "@hey_amandam @aiDotEngineer this is the entire aie strategy/value prop in a nutshell",
+          "created_at": "2026-07-04T06:33:28+00:00",
+          "like_count": 4,
+          "retweet_count": 0,
+          "reply_count": 0,
+          "url": "https://x.com/swyx/status/2073294102612107659"
         }
       ]
     },
@@ -90,22 +135,31 @@
       "tier": "builder",
       "tweets": [
         {
-          "id": "2073149354412822738",
-          "text": "Small tip: You can use Claude Code with computer use to set up Claude Tag. Just point it to the Claude Tag docs and it will connect your team’s GitHub repo, data warehouse, google drive, and other data sources for you!",
-          "created_at": "2026-07-03T20:58:18+00:00",
-          "like_count": 366,
-          "retweet_count": 18,
-          "reply_count": 34,
-          "url": "https://x.com/_catwu/status/2073149354412822738"
+          "id": "2073147672106873001",
+          "text": "What are you building with Fable 5 this long weekend? Show me your demos in the replies!",
+          "created_at": "2026-07-03T20:51:36+00:00",
+          "like_count": 734,
+          "retweet_count": 32,
+          "reply_count": 347,
+          "url": "https://x.com/_catwu/status/2073147672106873001"
         },
         {
           "id": "2073439890482794966",
           "text": "One of the things I love about Claude Fable 5 is that it knew to use propensity score matching (matching users on activity so you compare like with like) in my retention analysis without me asking.\n\nIt’s exciting to see Fable 5’s improved judgment across all of its work, from writing emails and docs in Cowork to debugging complex errors in Claude Code",
           "created_at": "2026-07-04T16:12:47+00:00",
-          "like_count": 376,
-          "retweet_count": 5,
-          "reply_count": 48,
+          "like_count": 422,
+          "retweet_count": 8,
+          "reply_count": 51,
           "url": "https://x.com/_catwu/status/2073439890482794966"
+        },
+        {
+          "id": "2073149354412822738",
+          "text": "Small tip: You can use Claude Code with computer use to set up Claude Tag. Just point it to the Claude Tag docs and it will connect your team’s GitHub repo, data warehouse, google drive, and other data sources for you!",
+          "created_at": "2026-07-03T20:58:18+00:00",
+          "like_count": 370,
+          "retweet_count": 18,
+          "reply_count": 34,
+          "url": "https://x.com/_catwu/status/2073149354412822738"
         },
         {
           "id": "2072872097312125169",
@@ -115,6 +169,15 @@
           "retweet_count": 0,
           "reply_count": 0,
           "url": "https://x.com/_catwu/status/2072872097312125169"
+        },
+        {
+          "id": "2073442459103940833",
+          "text": "@khandewalarya i’m using the currently released fable 5!",
+          "created_at": "2026-07-04T16:22:59+00:00",
+          "like_count": 12,
+          "retweet_count": 0,
+          "reply_count": 4,
+          "url": "https://x.com/_catwu/status/2073442459103940833"
         }
       ]
     },
@@ -135,19 +198,46 @@
           "id": "2073132174958841887",
           "text": "Agentic self-improvement. \n\nGive your agent the ability to introspect its past runs, spot inefficiencies, errors, redundant tool calls, and produce new prompts and skills.\n\nThat’s why agent observability is built-in when you deploy https://t.co/99eEa13mZ3 to Vercel.",
           "created_at": "2026-07-03T19:50:02+00:00",
-          "like_count": 687,
-          "retweet_count": 29,
+          "like_count": 694,
+          "retweet_count": 30,
           "reply_count": 77,
           "url": "https://x.com/rauchg/status/2073132174958841887"
         },
         {
-          "id": "2073106884819841270",
-          "text": "This is so powerful. ▲ Sandbox can now run 𝚍𝚘𝚌𝚔𝚎𝚛 and 𝚏𝚞𝚜𝚎, unconstrained.\n\nMicroVMs are the gift that keeps on giving. Instant boots, unconstrained runtimes. Very happy we bet on it as the foundation for 🌊 Fluid compute.\n\nS3-backed filesystem for agents in 10LOC ↓",
-          "created_at": "2026-07-03T18:09:32+00:00",
-          "like_count": 601,
-          "retweet_count": 23,
-          "reply_count": 37,
-          "url": "https://x.com/rauchg/status/2073106884819841270"
+          "id": "2073563586270781674",
+          "text": "🏁 I animated the token 💰 spend race, from ~lifetime Vercel AI Gateway usage, which aggregates trillions of tokens from millions of developers a month.\n\nFascinating to see the fluctuations among the labs, Anthropic's dominance, and the rise of open weight AI. https://t.co/iX8oRA4SBP",
+          "created_at": "2026-07-05T00:24:18+00:00",
+          "like_count": 278,
+          "retweet_count": 11,
+          "reply_count": 32,
+          "url": "https://x.com/rauchg/status/2073563586270781674"
+        },
+        {
+          "id": "2073129220377849968",
+          "text": "Agent Runs are now available on MCP and CLI.\n\n@evedev_ traces are automatically ingested and made available to agents.\n\nRun 𝚟𝚌 𝚊𝚐𝚎𝚗𝚝-𝚛𝚞𝚗𝚜 --𝚑𝚎𝚕𝚙 or learn more ↓ https://t.co/YxGxXTxPO1",
+          "created_at": "2026-07-03T19:38:17+00:00",
+          "like_count": 161,
+          "retweet_count": 15,
+          "reply_count": 14,
+          "url": "https://x.com/vercel_dev/status/2073129220377849968"
+        },
+        {
+          "id": "2073571511471124543",
+          "text": "@_markfenner Google is a quiet killer, because their models make economic sense to people. Even if @x is not excited about them as much (or at least in my bubble)",
+          "created_at": "2026-07-05T00:55:48+00:00",
+          "like_count": 6,
+          "retweet_count": 0,
+          "reply_count": 1,
+          "url": "https://x.com/rauchg/status/2073571511471124543"
+        },
+        {
+          "id": "2073566929370116151",
+          "text": "@quasa0 We have several token origins for Anthropic's models, so in practice it's almost never offline. (And we recently shipped routing rules in case a model gets retired!)\nhttps://t.co/qIvN3fyTFe",
+          "created_at": "2026-07-05T00:37:35+00:00",
+          "like_count": 3,
+          "retweet_count": 0,
+          "reply_count": 0,
+          "url": "https://x.com/rauchg/status/2073566929370116151"
         }
       ]
     },
@@ -177,5 +267,5 @@
     }
   ],
   "errors": null,
-  "generated_at": "2026-07-04T22:52:51.756554+00:00"
+  "generated_at": "2026-07-05T01:35:39.630019+00:00"
 }

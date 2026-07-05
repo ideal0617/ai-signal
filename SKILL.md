@@ -549,10 +549,9 @@ Kevin Weil (OpenAI), Ivan Zhao (Notion), Dylan Patel (SemiAnalysis), Gavin Baker
 **China AI:** 闫俊杰 (MiniMax), 杨植麟 (Moonshot), 梁文锋 (DeepSeek), 唐杰 (智谱),
 罗福莉, 李广密 (拾象), 肖弘 (Manus)
 
-### Twitter/X (16 accounts)
+### Twitter/X (14 accounts)
 **Analysts:** Karpathy, Swyx, Dylan Patel (SemiAnalysis), Leopold Aschenbrenner, Jim Keller
-**Executives:** Sam Altman, Dario Amodei, Demis Hassabis (Google DeepMind)
-**Infrastructure:** NVIDIA (Jensen Huang / AI infrastructure signal)
+**Executives:** Sam Altman, Dario Amodei
 **Builders:** Amanda Askell, Boris Cherny (Claude Code), Cat Wu, Alex Albert, Guillermo Rauch (Vercel), Amjad Masad (Replit), Josh Woodward (Google Labs)
 
 ### arXiv Papers (daily, up to 30)

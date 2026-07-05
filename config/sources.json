@@ -47,18 +47,6 @@
         "tier": "exec"
       },
       {
-        "handle": "demishassabis",
-        "name": "Demis Hassabis (Google DeepMind)",
-        "domain": "ai",
-        "tier": "exec"
-      },
-      {
-        "handle": "nvidia",
-        "name": "NVIDIA (Jensen Huang / AI infrastructure)",
-        "domain": "ai",
-        "tier": "infra"
-      },
-      {
         "handle": "AmandaAskell",
         "name": "Amanda Askell (Anthropic)",
         "domain": "ai",
@@ -134,7 +122,6 @@
     "people": {
       "lookback_hours": 168,
       "max_results_per_search": 3,
-      "max_new_per_run": 5,
       "min_duration_minutes": 15,
       "searches": [
         {

@@ -1,0 +1,120 @@
+name: AI Signal Daily Digest to Feishu
+
+# 每天北京时间 07:30 触发（= UTC 前一天 23:30）
+# 中央 feed 每天北京时间 06:00 重跑，07:30 拉正好是最新的
+on:
+  schedule:
+    - cron: '30 23 * * *'
+  workflow_dispatch:  # 也允许在 Actions 页面手动点 Run 立即测试
+
+concurrency:
+  group: ai-signal-deliver
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install user-side dependencies
+        run: pip install -r requirements.txt
+
+      # 用 GitHub Actions cache 跨天保存 seen.json，实现 dedup
+      - name: Restore seen.json across runs
+        id: seen-restore
+        uses: actions/cache/restore@v4
+        with:
+          path: seen-store/seen.json
+          key: ai-signal-seen-${{ github.run_id }}
+          restore-keys: |
+            ai-signal-seen-
+
+      - name: Write ~/.ai-signal config
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+        run: |
+          mkdir -p ~/.ai-signal
+          cat > ~/.ai-signal/config.json << EOF
+          {
+            "platform": "other",
+            "language": "bilingual",
+            "granularity": "summary",
+            "domains": ["ai", "invest"],
+            "timezone": "Asia/Shanghai",
+            "frequency": "daily",
+            "deliveryTime": "07:30",
+            "delivery": {
+              "method": "feishu",
+              "webhook_url": "${FEISHU_WEBHOOK_URL}"
+            },
+            "onboardingComplete": true
+          }
+          EOF
+          # 恢复上一次的 seen.json（如果有）
+          if [ -f seen-store/seen.json ]; then
+            cp seen-store/seen.json ~/.ai-signal/seen.json
+            echo "Restored seen.json from cache"
+          else
+            echo "No previous seen.json, this looks like the first run"
+          fi
+
+      - name: Prepare digest payload
+        run: |
+          python scripts/prepare_digest.py > /tmp/manifest.json
+          echo "=== Manifest stats ==="
+          python -c "import json; m=json.load(open('/tmp/manifest.json')); print(json.dumps(m.get('stats', {}), indent=2))"
+
+      - name: Render digest to Markdown
+        run: |
+          python scripts/prepare_digest.py 2>/dev/null | python scripts/render_digest.py > /tmp/digest.md
+          echo "=== Digest preview (first 40 lines) ==="
+          head -40 /tmp/digest.md
+          echo "=== Digest length ==="
+          wc -c /tmp/digest.md
+
+      # 空日报不推送，避免噪音
+      - name: Skip if digest is empty
+        id: check
+        run: |
+          if grep -q "今天暂时没有可展示的新内容" /tmp/digest.md; then
+            echo "empty=true" >> $GITHUB_OUTPUT
+            echo "No new items today, will not push to Feishu."
+          else
+            echo "empty=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Deliver to Feishu
+        if: steps.check.outputs.empty != 'true'
+        run: |
+          python scripts/deliver.py --file /tmp/digest.md
+
+      - name: Mark delivered (only if push succeeded)
+        if: steps.check.outputs.empty != 'true'
+        run: |
+          python scripts/mark_delivered.py
+
+      - name: Save seen.json for next run
+        if: always()
+        run: |
+          mkdir -p seen-store
+          if [ -f ~/.ai-signal/seen.json ]; then
+            cp ~/.ai-signal/seen.json seen-store/seen.json
+            wc -c seen-store/seen.json
+          fi
+
+      - name: Persist seen.json cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: seen-store/seen.json
+          key: ai-signal-seen-${{ github.run_id }}
